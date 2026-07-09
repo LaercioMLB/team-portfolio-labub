@@ -51,7 +51,7 @@ export default function Cta() {
               rel="noopener noreferrer"
               className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-[#25d366] hover:text-[#34d399] transition-colors"
             >
-              +55 (45) 9859-2126
+              Clique aqui
             </a>
             <p className="text-[11px] text-[#333] mt-2">Resposta imediata</p>
           </div>
