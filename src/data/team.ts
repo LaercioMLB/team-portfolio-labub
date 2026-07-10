@@ -44,7 +44,7 @@ export const team: TeamMember[] = [
     photo: "/team/riad.jpeg",
     linkedinUrl: "",
     portfolioUrl: "",
-    tagline: "",
+    tagline: "Transformando problemas em soluções modernas",
     tags: ["Automation AI", "Type Script", "Node", "React","Integration API"],
   },
 
