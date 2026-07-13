@@ -47,6 +47,15 @@ export const team: TeamMember[] = [
     tagline: "Transformando problemas em soluções modernas",
     tags: ["Automation AI", "Type Script", "Node", "React","Integration API"],
   },
+      {
+    area: "DevOps | Security Engineer",
+    lead: "Donizeti Junior",
+    photo: "/team/doni.jpeg",
+    linkedinUrl: "https://www.linkedin.com/in/donizetijunior/",
+    portfolioUrl: "",
+    tagline: "Automatizamos com inteligencia do básico ao avançado",
+    tags: ["Docker", "AWS", "Security", "SOC","Pentesting","Cloud Security"],
+  },
 
   {
     area: "Backend Engineer",
