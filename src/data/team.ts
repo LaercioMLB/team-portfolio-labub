@@ -39,7 +39,7 @@ export const team: TeamMember[] = [
     tags: ["Javascript", "Web", "Mobile", "React", "NextJS", "React Native"," Docker"," Expo"],
   },
     {
-    area: "Software Engineer",
+    area: "Fullstack Engineer",
     lead: "Riad Younes",
     photo: "/team/riad.jpeg",
     linkedinUrl: "",
@@ -65,5 +65,15 @@ export const team: TeamMember[] = [
     portfolioUrl: "",
     tagline: "Transformando ideias em algoritmos.",
     tags: ["MySQL", "Postgresql", "Fast API", "Java", "ORM", "C#","Docker","Integração"],
+  },
+
+    {
+    area: "Systems Architect | SRE",
+    lead: "Willian Zibikoski",
+    photo: "/team/willian.jpeg",
+    linkedinUrl: "",
+    portfolioUrl: "",
+    tagline: "Projetando arquiteturas tão resilientes que resistem até a usuário tentando derrubar o banco de dados na sexta-feira às 17:59.",
+    tags: ["Docker ", "Terraform ", "Ansible ", "Azure ", "Python ", "SQL ","NoSQL","Cloud Architeture","API Security"],
   },
 ];
