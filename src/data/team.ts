@@ -60,7 +60,7 @@ export const team: TeamMember[] = [
   {
     area: "Backend Engineer",
     lead: "Gregory Xavier Fleury Torres",
-    photo: "/team/gregory-novo-1x1.png",
+    photo: "/team/gregory-novo.png",
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Transformando ideias em algoritmos.",
