@@ -39,7 +39,7 @@ export default function HowItWorks() {
               aria-hidden="true"
               style={{
                 color: 'transparent',
-                WebkitTextStroke: '1px rgba(62, 62, 145)',
+                WebkitTextStroke: '1px #f0f0f0',
               }}
             >
               {step.num}

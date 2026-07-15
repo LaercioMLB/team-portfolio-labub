@@ -29,7 +29,7 @@ export default function Team() {
                 alt={member.lead}
                 width={64}
                 height={64}
-                className="w-full h-full object-cover grayscale contrast-[1.05] transition-[filter] duration-300 group-hover:grayscale-0"
+                className="w-full h-full object-cover  contrast-[1.05] transition-[filter] duration-300 group-hover:grayscale-0"
               />
             </div>
 

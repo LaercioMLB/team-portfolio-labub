@@ -28,7 +28,7 @@ export default function Testimonials() {
                   alt={t.name}
                   width={40}
                   height={40}
-                  className="w-full h-full object-cover grayscale contrast-[1.05]"
+                  className="w-full h-full object-cover contrast-[1.05]"
                 />
               </div>
               <div>
