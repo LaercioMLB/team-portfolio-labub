@@ -44,7 +44,7 @@ export const team: TeamMember[] = [
     photo: "/team/riad-novo.png",
     linkedinUrl: "",
     portfolioUrl: "",
-    tagline: "Transformando problemas em soluções modernas",
+    tagline: "Transformando problemas em soluções modernas.",
     tags: ["Automation AI", "Type Script", "Node", "React","Integration API"],
   },
       {
@@ -53,7 +53,7 @@ export const team: TeamMember[] = [
     photo: "/team/doni-novo.png",
     linkedinUrl: "https://www.linkedin.com/in/donizetijunior/",
     portfolioUrl: "",
-    tagline: "Automatizamos com inteligencia do básico ao avançado",
+    tagline: "Automatizamos com inteligencia do básico ao avançado.",
     tags: ["Docker", "AWS", "Security", "SOC","Pentesting","Cloud Security"],
   },
 
