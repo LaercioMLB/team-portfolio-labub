@@ -13,7 +13,7 @@ export const team: TeamMember[] = [
   {
     area: "DevOps | Cloud Infrastructure",
     lead: "Laercio Bubiak",
-    photo: "/team/laercio.png",
+    photo: "/team/laercio-novo.png",
     linkedinUrl: "https://www.linkedin.com/in/laercio-bubiak/",
     portfolioUrl: "https://www.laercio.me/",
     tagline: "Deixo a conta da Cloud mais barata e automatizo deploys pra ninguém dormir com medo de subir errado.",
@@ -22,7 +22,7 @@ export const team: TeamMember[] = [
   {
     area: "Frontend Engineer",
     lead: "Dionei Bianchati",
-    photo: "/team/dionei.png",
+    photo: "/team/dionei-novo.png",
     linkedinUrl: "https://www.linkedin.com/in/dionbiancha",
     portfolioUrl: "https://dionei.com/",
     tagline: "Deixa qualquer interface rápida mesmo em conexão fraca.",
@@ -32,7 +32,7 @@ export const team: TeamMember[] = [
   {
     area: "Fullstack Engineer",
     lead: "Vinicios Engelage",
-    photo: "/team/vinicios.jpeg",
+    photo: "/team/vinicios-novo.png",
     linkedinUrl: "https://www.linkedin.com/in/viniengelage/",
     portfolioUrl: "https://www.viniengelage.com/",
     tagline: "Resolvo bugs para não me estressar e me estresso corrigindo bugs.",
@@ -41,7 +41,7 @@ export const team: TeamMember[] = [
     {
     area: "Fullstack Engineer",
     lead: "Riad Younes",
-    photo: "/team/riad.jpeg",
+    photo: "/team/riad-novo.png",
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Transformando problemas em soluções modernas",
@@ -50,7 +50,7 @@ export const team: TeamMember[] = [
       {
     area: "DevOps | Security Engineer",
     lead: "Donizeti Junior",
-    photo: "/team/doni.jpeg",
+    photo: "/team/doni-novo.png",
     linkedinUrl: "https://www.linkedin.com/in/donizetijunior/",
     portfolioUrl: "",
     tagline: "Automatizamos com inteligencia do básico ao avançado",
@@ -60,7 +60,7 @@ export const team: TeamMember[] = [
   {
     area: "Backend Engineer",
     lead: "Gregory Xavier Fleury Torres",
-    photo: "/team/gregory.jpeg",
+    photo: "/team/gregory-novo.png",
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Transformando ideias em algoritmos.",
@@ -70,7 +70,7 @@ export const team: TeamMember[] = [
     {
     area: "Systems Architect | SRE",
     lead: "Willian Zibikoski",
-    photo: "/team/willian.jpeg",
+    photo: "/team/willian-novo.png",
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Projetando arquiteturas tão resilientes que resistem até a usuário tentando derrubar o banco de dados na sexta-feira às 17:59.",
