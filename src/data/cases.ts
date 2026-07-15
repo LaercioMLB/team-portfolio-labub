@@ -5,6 +5,8 @@ export type Case = {
   description: string
   stack: string[]
   theme: 'blue' | 'dark' | 'green'
+  logo: string
+  url: string
 }
 
 export const cases: Case[] = [
@@ -14,6 +16,8 @@ export const cases: Case[] = [
     description: 'Plataforma completa de vendas online com integração de pagamento e logística em tempo real.',
     stack: ['React', 'Node.js', 'AWS'],
     theme: 'blue',
+    logo: '/cases/moda-sul.svg',
+    url: '#',
   },
   {
     name: 'Saúde+',
@@ -21,6 +25,8 @@ export const cases: Case[] = [
     description: 'App de agendamento de consultas e prontuário eletrônico para rede de 12 clínicas.',
     stack: ['Next.js', 'Python', 'UX'],
     theme: 'dark',
+    logo: '/cases/saude-mais.svg',
+    url: '#',
   },
   {
     name: 'Pago',
@@ -28,5 +34,7 @@ export const cases: Case[] = [
     description: 'Dashboard de gestão financeira em tempo real para PMEs com relatórios automáticos e alertas.',
     stack: ['GraphQL', 'K8s', 'CI/CD'],
     theme: 'green',
+    logo: '/cases/pago.svg',
+    url: '#',
   },
 ]
