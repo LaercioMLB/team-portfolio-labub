@@ -4,7 +4,8 @@ import { cases, type Case } from '@/data/cases'
 const themeClasses: Record<Case['theme'], string> = {
   blue:  'bg-gradient-to-br from-[#0f172a] to-[#1e3a8a]',
   dark:  'bg-gradient-to-br from-[#0a0a0a] to-[#1f2937]',
-  green: 'bg-gradient-to-br from-[#022c22] to-[#064e3b]',
+  green: 'bg-gradient-to-br from-[#002F24] to-[#064e3b6]',
+  greenLight: 'bg-gradient-to-br from-[#f0f0f0] to-[#e5e7eb]',
 }
 
 export default function Cases() {
