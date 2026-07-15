@@ -22,7 +22,7 @@ export const team: TeamMember[] = [
   {
     area: "Frontend Engineer",
     lead: "Dionei Bianchati",
-    photo: "/team/dionei-novo.png",
+    photo: "/team/dionei-novo-1x1.png",
     linkedinUrl: "https://www.linkedin.com/in/dionbiancha",
     portfolioUrl: "https://dionei.com/",
     tagline: "Deixa qualquer interface rápida mesmo em conexão fraca.",
@@ -60,7 +60,7 @@ export const team: TeamMember[] = [
   {
     area: "Backend Engineer",
     lead: "Gregory Xavier Fleury Torres",
-    photo: "/team/gregory-novo.png",
+    photo: "/team/gregory-novo-1x1.png",
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Transformando ideias em algoritmos.",
@@ -70,7 +70,7 @@ export const team: TeamMember[] = [
     {
     area: "Systems Architect | SRE",
     lead: "Willian Zibikoski",
-    photo: "/team/willian-novo.png",
+    photo: "/team/willian-novo-1x1.png",
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Projetando arquiteturas tão resilientes que resistem até a usuário tentando derrubar o banco de dados na sexta-feira às 17:59.",
