@@ -24,7 +24,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-3 mt-5">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <Image
-                  src={`https://randomuser.me/api/portraits/${t.photo}.jpg`}
+                  src={`${t.photo}`}
                   alt={t.name}
                   width={40}
                   height={40}

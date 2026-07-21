@@ -7,16 +7,11 @@ export type Testimonial = {
 }
 
 export const testimonials: Testimonial[] = [
+
   {
-    name: 'Fernanda Rocha',
-    role: 'CEO, Moda Sul',
-    photo: 'women/21',
-    text: 'A Labub entendeu o que a gente precisava sem reuniões intermináveis. O resultado chegou antes do prazo e superou o que imaginávamos.',
-  },
-  {
-    name: 'Rafael Menezes',
-    role: 'CTO, Fintech Pago',
-    photo: 'men/54',
+    name: 'Clói Rotta',
+    role: 'CEO | Founder, SOSCONSTRUIR',
+    photo: '/testimonials/cloi-sos.png',
     text: 'Ter frontend, backend e UX no mesmo time foi o diferencial. Comunicação sempre clara, produto de altíssima qualidade e zero dor de cabeça.',
   },
 ]
