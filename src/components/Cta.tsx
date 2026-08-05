@@ -31,10 +31,10 @@ export default function Cta() {
               Email
             </p>
             <a
-              href="mailto:contato@laercio.me"
+              href="mailto:lbubiak@hotmail.com"
               className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-[#e0e0e0] hover:text-white transition-colors"
             >
-              contato@laercio.me
+              lbubiak@hotmail.com
             </a>
             <p className="text-[11px] text-[#333] mt-2">Resposta em até 24h</p>
           </div>
