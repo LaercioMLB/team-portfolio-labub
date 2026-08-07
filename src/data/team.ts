@@ -53,21 +53,10 @@ export const team: TeamMember[] = [
     photo: "/team/doni-novo.png",
     linkedinUrl: "https://www.linkedin.com/in/donizetijunior/",
     portfolioUrl: "",
-    tagline: "Automatizamos com inteligencia do básico ao avançado.",
+    tagline: "Automatizo tudo o que pode ser automatizado. O resto, a gente melhora até poder automatizar também.",
     tags: ["Docker", "AWS", "Security", "SOC","Pentesting","Cloud Security"],
   },
-
   {
-    area: "Backend Engineer",
-    lead: "Gregory Xavier Fleury Torres",
-    photo: "/team/gregory-versao-4.png",
-    linkedinUrl: "",
-    portfolioUrl: "",
-    tagline: "Transformando ideias em algoritmos.",
-    tags: ["MySQL", "Postgresql", "Fast API", "Java", "ORM", "C#","Docker","Integração"],
-  },
-
-    {
     area: "Systems Architect | SRE",
     lead: "Willian Zibikoski",
     photo: "/team/willian-novo-1x1.png",
@@ -75,5 +64,23 @@ export const team: TeamMember[] = [
     portfolioUrl: "",
     tagline: "Projetando arquiteturas tão resilientes que resistem até a usuário tentando derrubar o banco de dados na sexta-feira às 17:59.",
     tags: ["Docker ", "Terraform ", "Ansible ", "Azure ", "Python ", "SQL ","NoSQL","Cloud Architeture","API Security"],
+  },
+  {
+    area: "Backend Engineer",
+    lead: "Gustavo Gamarra",
+    photo: "/team/gustavo-1x1.jpeg",
+    linkedinUrl: "",
+    portfolioUrl: "",
+    tagline: "Transformo sistemas legados em soluções que dão menos trabalho do que explicar por que ainda existem. Arquitetura, automação e deploys para que produção não vire um evento.",
+    tags: ["Oracle APEX ", "Oracle OCI ", "PL/SQL ", "PostgreSQL ", "Java  ", "Spring Boot ","PHP","Delphi ","Reverse Engineering","AWS","Kubernetes", "Machine Learning","CI/CD"],
+  },
+    {
+    area: "Backend Engineer",
+    lead: "Gregory Xavier Fleury Torres",
+    photo: "/team/gregory-versao-4.png",
+    linkedinUrl: "",
+    portfolioUrl: "",
+    tagline: "Transformando ideias em algoritmos.",
+    tags: ["MySQL", "Postgresql", "Fast API", "Java", "ORM", "C#","Docker","Integração"],
   },
 ];
