@@ -69,7 +69,7 @@ export const team: TeamMember[] = [
     area: "Backend Engineer",
     lead: "Gustavo Gamarra",
     photo: "/team/gustavo-1x1.jpeg",
-    linkedinUrl: "",
+    linkedinUrl: "https://www.linkedin.com/in/gustavo-ariel-gamarra-rojas/",
     portfolioUrl: "",
     tagline: "Transformo sistemas legados em soluções que dão menos trabalho do que explicar por que ainda existem. Arquitetura, automação e deploys para que produção não vire um evento.",
     tags: ["Oracle APEX ", "Oracle OCI ", "PL/SQL ", "PostgreSQL ", "Java  ", "Spring Boot ","PHP","Delphi ","Reverse Engineering","AWS","Kubernetes", "Machine Learning","CI/CD"],
