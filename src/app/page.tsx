@@ -6,6 +6,7 @@ import Team         from '@/components/Team'
 import HowItWorks     from '@/components/HowItWorks'
 import ServicesBrowser from '@/components/ServicesBrowser'
 import Cases          from '@/components/Cases'
+import OpenSource     from '@/components/OpenSource'
 import Testimonials from '@/components/Testimonials'
 import Cta          from '@/components/Cta'
 import Footer       from '@/components/Footer'
@@ -25,6 +26,7 @@ export default function Home() {
           <HowItWorks />
           <ServicesBrowser />
           <Cases />
+          <OpenSource />
           <Testimonials />
           <Cta />
         </main>

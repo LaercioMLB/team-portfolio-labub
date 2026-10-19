@@ -74,13 +74,4 @@ export const team: TeamMember[] = [
     tagline: "Transformo sistemas legados em soluções que dão menos trabalho do que explicar por que ainda existem. Arquitetura, automação e deploys para que produção não vire um evento.",
     tags: ["Oracle APEX ", "Oracle OCI ", "PL/SQL ", "PostgreSQL ", "Java  ", "Spring Boot ","PHP","Delphi ","Reverse Engineering","AWS","Kubernetes", "Machine Learning","CI/CD"],
   },
-    {
-    area: "Backend Engineer",
-    lead: "Gregory Xavier Fleury Torres",
-    photo: "/team/gregory-versao-4.png",
-    linkedinUrl: "",
-    portfolioUrl: "",
-    tagline: "Transformando ideias em algoritmos.",
-    tags: ["MySQL", "Postgresql", "Fast API", "Java", "ORM", "C#","Docker","Integração"],
-  },
 ];
