@@ -76,6 +76,76 @@ export default function OpenSource() {
             </a>
           </div>
         </article>
+        <article
+          className="block bg-card border border-white/[0.06] rounded-xl overflow-hidden hover:border-accent/[0.3] transition-colors"
+        >
+          <a
+            href="https://iplogger.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ver projeto Ip Logger"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+          >
+            <div className="h-[140px] flex items-center justify-center gap-3 bg-gradient-to-br from-[#0a0a0a] to-[#1f2937]">
+              <svg
+                viewBox="0 0 32 32"
+                width={40}
+                height={40}
+                aria-hidden="true"
+              >
+                <rect width="32" height="32" rx="9" fill="#4f7cff" />
+                <path
+                  d="M16 6l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V9z"
+                  fill="none"
+                  stroke="#fff"
+                  strokeWidth="2.2"
+                  strokeLinejoin="round"
+                />
+                <circle cx="16" cy="15" r="2.4" fill="#fff" />
+              </svg>
+              <span className="text-2xl font-bold tracking-tight text-[#e8ecfb]">
+                Ip Logger
+              </span>
+            </div>
+
+            <div className="p-5">
+              <p className="text-[10px] text-accent font-semibold uppercase tracking-[1px] mb-2">
+                Código aberto · Cibersegurança
+              </p>
+              <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
+                Ip Logger
+              </h3>
+              <p className="text-[12px] text-[#555] mt-1.5 leading-[1.5]">
+                Plataforma open source de cibersegurança para verificar URLs,
+                consultar IPs e domínios e analisar a origem dos acessos. Inclui
+                links curtos com monitoramento, análise de risco, alertas e notas
+                criptografadas.
+              </p>
+              <div className="flex gap-1.5 flex-wrap mt-3.5">
+                {['Open Source', 'Cibersegurança', 'Análise de URLs e IPs'].map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] text-[#444] border border-[#1e1e1e] px-2 py-0.5 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+          <div className="px-5 pb-5">
+            <a
+              href="https://github.com/Donizetijunior/IP-Logger-Security-Center"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver repositório do Ip Logger no GitHub"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.04] px-3.5 py-2 text-[12px] font-semibold text-[#e0e0e0] hover:border-accent/40 hover:bg-accent/10 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-card"
+            >
+              Ver no GitHub
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   )
