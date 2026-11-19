@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -11,6 +11,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Labub — Time completo de tecnologia",
   description: "Frontend, Backend, UX Design e DevOps em um único time integrado. Da ideia ao deploy.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#080808",
 };
 
 export default function RootLayout({

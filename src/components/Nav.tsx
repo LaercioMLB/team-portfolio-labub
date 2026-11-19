@@ -1,4 +1,6 @@
 // src/components/Nav.tsx
+import Logo from './Logo'
+
 const links = [
   { label: 'Serviços', href: '#servicos' },
   { label: 'Time',     href: '#time' },
@@ -10,14 +12,9 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between px-4 md:px-12 py-3 md:py-5 border-b border-white/[0.06] bg-[rgba(8,8,8,0.85)] backdrop-blur-md" aria-label="Navegação principal">
       {/* Logo */}
-      <div className="flex items-center gap-2.5">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-[#3b82f6] flex items-center justify-center text-white font-black text-sm tracking-tighter" aria-hidden="true">
-          lb
-        </div>
-        <span className="text-[17px] font-extrabold tracking-tight">
-          <span className="text-white">la</span><span className="text-accent">bub</span>
-        </span>
-      </div>
+      <a href="#" className="flex items-center shrink-0" aria-label="Labub — voltar ao início">
+        <Logo className="h-7 md:h-9 w-auto" />
+      </a>
 
       {/* Links */}
       <ul className="hidden md:flex items-center gap-7">
