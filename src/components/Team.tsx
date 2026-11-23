@@ -10,7 +10,7 @@ export default function Team() {
       </p>
       <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
         O time da Labub.{" "}
-        <span className="text-[#444]">Especialistas de verdade.</span>
+        <span className="text-faint">Especialistas de verdade.</span>
       </h2>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(400px,100%),1fr))] gap-4">

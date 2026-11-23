@@ -20,14 +20,14 @@ export default function Cta() {
           <br />
           Você foca no negócio.
         </h2>
-        <p className="text-[15px] text-[#444] mb-8 md:mb-12">
+        <p className="text-[15px] text-body mb-8 md:mb-12">
           Sem compromisso. A gente responde em até 24h.
         </p>
 
         {/* Contatos */}
-        <div className="flex flex-col md:flex-row items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
           <div className="px-6 md:px-14 text-center">
-            <p className="text-[10px] text-[#444] uppercase tracking-[2px] font-semibold mb-2.5">
+            <p className="text-[10px] text-body uppercase tracking-[2px] font-semibold mb-2.5">
               Email
             </p>
             <a
@@ -36,13 +36,13 @@ export default function Cta() {
             >
               lbubiak@hotmail.com
             </a>
-            <p className="text-[11px] text-[#333] mt-2">Resposta em até 24h</p>
+            <p className="text-[11px] text-body mt-2">Resposta em até 24h</p>
           </div>
 
           <div className="hidden md:block w-px h-16 bg-white/[0.08]" aria-hidden="true" />
 
           <div className="px-6 md:px-14 text-center">
-            <p className="text-[10px] text-[#444] uppercase tracking-[2px] font-semibold mb-2.5">
+            <p className="text-[10px] text-body uppercase tracking-[2px] font-semibold mb-2.5">
               WhatsApp
             </p>
             <a
@@ -51,9 +51,9 @@ export default function Cta() {
               rel="noopener noreferrer"
               className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-[#25d366] hover:text-[#34d399] transition-colors"
             >
-              Clique aqui
+              Chamar no WhatsApp
             </a>
-            <p className="text-[11px] text-[#333] mt-2">Resposta imediata</p>
+            <p className="text-[11px] text-body mt-2">Resposta imediata</p>
           </div>
         </div>
       </div>

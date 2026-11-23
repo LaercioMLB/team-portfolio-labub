@@ -10,7 +10,7 @@ export default function Testimonials() {
       </p>
       <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
         Clientes que{' '}
-        <span className="text-[#444]">confiaram na Labub.</span>
+        <span className="text-faint">confiaram na Labub.</span>
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -33,7 +33,7 @@ export default function Testimonials() {
               </div>
               <div>
                 <p className="text-[13px] font-bold text-[#e0e0e0]">{t.name}</p>
-                <p className="text-[11px] text-[#444] mt-0.5">{t.role}</p>
+                <p className="text-[11px] text-body mt-0.5">{t.role}</p>
               </div>
             </div>
           </div>

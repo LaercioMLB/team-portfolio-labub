@@ -16,7 +16,7 @@ export default function Cases() {
       </p>
       <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
         Projetos que{' '}
-        <span className="text-[#444]">fazem a diferença.</span>
+        <span className="text-faint">fazem a diferença.</span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -43,14 +43,14 @@ export default function Cases() {
               <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
                 {c.name}
               </h3>
-              <p className="text-[12px] text-[#555] mt-1.5 leading-[1.5]">
+              <p className="text-[12px] text-body mt-1.5 leading-[1.5]">
                 {c.description}
               </p>
               <div className="flex gap-1.5 flex-wrap mt-3.5">
                 {c.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-[10px] text-[#444] border border-[#1e1e1e] px-2 py-0.5 rounded"
+                    className="text-[10px] text-body border border-[#1e1e1e] px-2 py-0.5 rounded"
                   >
                     {tech}
                   </span>
