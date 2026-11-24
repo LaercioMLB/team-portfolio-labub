@@ -14,7 +14,11 @@
   --color-subtle: #333333;
   --color-dimmed: #444444;
 
-  --animate-marquee: marquee 28s linear infinite;
+  /* Text on bg/card. body = small text (≥5.5:1), faint = the grey half of large headings (≥3.6:1) */
+  --color-body: #888888;
+  --color-faint: #6b6b6b;
+
+  --animate-marquee: marquee 40s linear infinite;
   --animate-load-bar: load-bar 0.5s ease forwards;
   --animate-fade-in-up: fade-in-up 0.35s ease;
 }
@@ -57,7 +61,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 160px;
+  width: 96px;
   z-index: 2;
   pointer-events: none;
 }
@@ -68,6 +72,10 @@
 .marquee-fade::after {
   right: 0;
   background: linear-gradient(to left, #080808 0%, transparent 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-fade::before,
+  .marquee-fade::after { display: none; }
 }
 
 html {

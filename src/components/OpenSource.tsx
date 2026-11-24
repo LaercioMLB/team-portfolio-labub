@@ -13,7 +13,7 @@ export default function OpenSource() {
         className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12"
       >
         Projetos OpenSource,{' '}
-        <span className="text-[#444]">utilize como quiser!</span>
+        <span className="text-faint">utilize como quiser!</span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -45,7 +45,7 @@ export default function OpenSource() {
               <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
                 Codequestions
               </h3>
-              <p className="text-[12px] text-[#555] mt-1.5 leading-[1.5]">
+              <p className="text-[12px] text-body mt-1.5 leading-[1.5]">
                 Plataforma de código aberto para ajudar na preparação para entrevistas
                 técnicas em todas as áreas de TI. Pratique com perguntas, respostas
                 explicadas e flashcards, e acompanhe sua evolução para chegar mais
@@ -55,7 +55,7 @@ export default function OpenSource() {
                 {['Open Source', 'Perguntas e respostas', 'Flashcards'].map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] text-[#444] border border-[#1e1e1e] px-2 py-0.5 rounded"
+                    className="text-[10px] text-body border border-[#1e1e1e] px-2 py-0.5 rounded"
                   >
                     {tag}
                   </span>
@@ -115,7 +115,7 @@ export default function OpenSource() {
               <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
                 Ip Logger
               </h3>
-              <p className="text-[12px] text-[#555] mt-1.5 leading-[1.5]">
+              <p className="text-[12px] text-body mt-1.5 leading-[1.5]">
                 Plataforma open source de cibersegurança para verificar URLs,
                 consultar IPs e domínios e analisar a origem dos acessos. Inclui
                 links curtos com monitoramento, análise de risco, alertas e notas
@@ -125,7 +125,7 @@ export default function OpenSource() {
                 {['Open Source', 'Cibersegurança', 'Análise de URLs e IPs'].map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] text-[#444] border border-[#1e1e1e] px-2 py-0.5 rounded"
+                    className="text-[10px] text-body border border-[#1e1e1e] px-2 py-0.5 rounded"
                   >
                     {tag}
                   </span>

@@ -1,27 +1,43 @@
-// src/components/Metrics.tsx
 import { metrics } from '@/data/metrics'
 
-export default function Metrics() {
-  // Duplicate for seamless infinite loop
-  const doubled = [...metrics, ...metrics]
-
+// Carrossel legível: números com opacidade total, pausa no hover e,
+// com "reduzir movimento", vira uma grade parada (sem a cópia do loop).
+function MetricItem({ value, label }: { value: string; label: string }) {
   return (
-    <div className="relative overflow-hidden marquee-fade mt-16">
-      <div className="flex w-max animate-marquee">
-        {doubled.map((m, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center px-8 md:px-14 py-4 md:py-7 opacity-30 blur-[1.2px] scale-95 transition-all duration-300 ease-out hover:opacity-100 hover:blur-0 hover:scale-105 cursor-default"
-          >
-            <span className="text-[32px] md:text-[48px] font-black tracking-[-2.5px] text-[#f0f0f0] leading-none whitespace-nowrap">
-              {m.value}
-            </span>
-            <span className="text-[11px] text-[#555] uppercase tracking-[1.5px] font-medium mt-1.5 whitespace-nowrap">
-              {m.label}
-            </span>
-          </div>
-        ))}
-      </div>
+    <div className="flex flex-col items-center px-8 md:px-14 py-6 md:py-8">
+      <span className="text-[32px] md:text-[44px] font-black tracking-[-2px] text-[#f0f0f0] leading-none whitespace-nowrap">
+        {value}
+      </span>
+      <span className="text-[10px] md:text-[11px] text-body uppercase tracking-[1px] md:tracking-[1.5px] font-medium mt-2 whitespace-nowrap">
+        {label}
+      </span>
     </div>
+  )
+}
+
+export default function Metrics() {
+  return (
+    <section
+      aria-label="Números da Labub"
+      className="group relative overflow-hidden marquee-fade mt-16 border-y border-white/[0.06]"
+    >
+      <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center">
+        <ul className="flex motion-reduce:flex-wrap motion-reduce:justify-center">
+          {metrics.map((m) => (
+            <li key={m.label}>
+              <MetricItem {...m} />
+            </li>
+          ))}
+        </ul>
+        {/* Cópia só para o loop contínuo: escondida de leitores de tela e de quem reduz movimento */}
+        <ul className="flex motion-reduce:hidden" aria-hidden="true">
+          {metrics.map((m) => (
+            <li key={m.label}>
+              <MetricItem {...m} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   )
 }

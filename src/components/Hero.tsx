@@ -34,11 +34,19 @@ export default function Hero() {
         </h1>
 
         {/* Subtítulo */}
-        <p className="text-[14px] md:text-[16px] text-[#666] leading-[1.7] max-w-full md:max-w-[460px]">
+        <p className="text-[14px] md:text-[16px] text-body leading-[1.7] max-w-full md:max-w-[460px]">
           A Labub é um time completo de{' '}
-          <strong className="text-[#aaa] font-medium">frontend, backend, UX e DevOps</strong>.
+          <strong className="text-[#d4d4d4] font-medium">frontend, backend, UX e DevOps</strong>.
           Do zero ao deploy, a gente cuida do que você não quer se preocupar.
         </p>
+
+        <a
+          href="#contato"
+          className="inline-flex items-center gap-2 mt-8 text-[15px] font-bold text-bg bg-white px-6 py-3.5 rounded-lg hover:bg-white/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        >
+          Fale com a gente
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   )

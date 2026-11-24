@@ -1,7 +1,6 @@
 import Nav          from '@/components/Nav'
 import Hero         from '@/components/Hero'
 import Metrics      from '@/components/Metrics'
-import Services     from '@/components/Services'
 import Team         from '@/components/Team'
 import HowItWorks     from '@/components/HowItWorks'
 import ServicesBrowser from '@/components/ServicesBrowser'
@@ -21,10 +20,9 @@ export default function Home() {
         <main>
           <Hero />
           <Metrics />
-          <Services />
+          <ServicesBrowser />
           <Team />
           <HowItWorks />
-          <ServicesBrowser />
           <Cases />
           <OpenSource />
           <Testimonials />

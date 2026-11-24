@@ -30,7 +30,7 @@ export default function Nav() {
       {/* CTA */}
       <a
         href="#contato"
-        className="text-[13px] font-bold text-bg bg-white px-3 md:px-[18px] py-2 md:py-2.5 rounded-lg hover:bg-white/90 transition-colors"
+        className="text-[13px] font-semibold text-[#f0f0f0] border border-white/[0.15] px-3 md:px-[18px] py-2 md:py-2.5 rounded-lg hover:border-white/40 transition-colors"
       >
         Fale conosco →
       </a>

@@ -25,7 +25,7 @@ export default function HowItWorks() {
       </p>
       <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
         Três passos{' '}
-        <span className="text-[#444]">para começar.</span>
+        <span className="text-faint">para começar.</span>
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-0.5">
@@ -47,7 +47,7 @@ export default function HowItWorks() {
             <h3 className="text-[16px] md:text-[18px] font-bold text-[#e0e0e0] tracking-tight mb-2">
               {step.title}
             </h3>
-            <p className="text-[13px] text-[#555] leading-[1.6]">{step.desc}</p>
+            <p className="text-[13px] text-body leading-[1.6]">{step.desc}</p>
           </div>
         ))}
       </div>

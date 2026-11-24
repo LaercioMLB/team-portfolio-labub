@@ -10,12 +10,12 @@ export default function ServicesBrowser() {
     serviceAreas.find((area) => area.key === activeKey) ?? serviceAreas[0];
 
   return (
-    <section className="px-4 md:px-12 py-16 md:py-[120px]">
+    <section id="servicos" className="px-4 md:px-12 py-16 md:py-[120px]">
       <p className="text-[11px] text-accent uppercase tracking-[2px] font-semibold mb-3">
         O que fazemos
       </p>
       <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
-        Serviços <span className="text-[#444]">prestados.</span>
+        Serviços <span className="text-faint">prestados.</span>
       </h2>
 
       <div className="bg-card border border-white/[0.07] rounded-2xl overflow-hidden">
@@ -31,7 +31,7 @@ export default function ServicesBrowser() {
               <span className="text-[10px]" aria-hidden="true">
                 🔒
               </span>
-              <span className="text-[#555] whitespace-nowrap">
+              <span className="text-body whitespace-nowrap">
                 labub.dev/servicos/
               </span>
               <span className="text-[#ccc] whitespace-nowrap">
@@ -51,7 +51,7 @@ export default function ServicesBrowser() {
                 className={`flex items-center gap-1.5 px-3.5 py-2.5 text-[12px] font-semibold border-b-2 whitespace-nowrap transition-colors ${
                   area.key === activeKey
                     ? "text-[#f0f0f0] border-accent"
-                    : "text-[#666] border-transparent hover:text-[#aaa]"
+                    : "text-body border-transparent hover:text-[#ccc]"
                 }`}
               >
                 <span aria-hidden="true">{area.icon}</span>
