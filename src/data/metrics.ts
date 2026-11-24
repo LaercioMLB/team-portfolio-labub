@@ -5,7 +5,7 @@ export type Metric = {
 }
 
 export const metrics: Metric[] = [
-  { value: '40+',   label: 'Projetos entregues' },
+  // { value: '40+',   label: 'Projetos entregues' },
   { value: '4',     label: 'Frentes especializadas' },
   { value: '98%',   label: 'Taxa de satisfação' },
   { value: '3+',    label: 'Anos de mercado' },

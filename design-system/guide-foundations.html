@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labub · Fundações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  .page { max-width: 1200px; margin: 0 auto; padding: var(--space-16) var(--space-4); }
+  @media (min-width: 768px) { .page { padding: var(--space-16) var(--layout-gutter); } }
+
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-16); }
+  .version { font-size: var(--text-caption); color: var(--color-text-muted); border: 1px solid var(--color-border); border-radius: var(--radius-full); padding: var(--space-1) var(--space-3); }
+
+  .eyebrow { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-accent-text); margin-bottom: var(--space-3); }
+  h1 { font-size: 36px; font-weight: 900; letter-spacing: var(--tracking-display); line-height: 1; text-wrap: balance; }
+  @media (min-width: 768px) { h1 { font-size: var(--text-heading-xl); } }
+  h1 .faint, h2 .faint { color: var(--color-text-faint); }
+  .lead { font-size: var(--text-body-lg); line-height: var(--leading-body-lg); color: var(--color-text-muted); max-width: var(--layout-measure); margin-top: var(--space-5); text-wrap: pretty; }
+  .lead strong { color: var(--color-text-soft); font-weight: 500; }
+
+  section.block { display: grid; gap: var(--space-8); padding: var(--space-16) 0; border-top: 1px solid var(--color-divider); }
+  @media (min-width: 900px) { section.block { grid-template-columns: 260px 1fr; gap: var(--space-12); } }
+  @media (min-width: 900px) { section.block.wide { grid-template-columns: 1fr; gap: var(--space-8); } .wide .legend { max-width: 640px; } }
+  .type-row > div:last-child { text-wrap: balance; }
+  .legend h2 { font-size: var(--text-title-lg); font-weight: 800; letter-spacing: var(--tracking-heading); line-height: var(--leading-title-lg); margin-bottom: var(--space-3); }
+  .legend p { font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-muted); text-wrap: pretty; }
+  .legend p + p { margin-top: var(--space-3); }
+  .legend strong { color: var(--color-text-soft); font-weight: 600; }
+
+  .group-title { font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; color: var(--color-text-muted); margin: var(--space-8) 0 var(--space-3); }
+  .group-title:first-child { margin-top: 0; }
+
+  /* swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-3); }
+  .sw { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .sw .chip { height: 56px; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; padding: 0 var(--space-3); font-weight: 700; font-size: var(--text-body-sm); }
+  .sw .meta { padding: var(--space-2-5) var(--space-3); }
+  .sw code { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text); display: block; }
+  .sw span { font-size: var(--text-caption); color: var(--color-text-muted); line-height: var(--leading-caption); display: block; margin-top: 2px; }
+  .ratio { font-variant-numeric: tabular-nums; }
+  .ratio.ok { color: var(--color-success); } .ratio.lg { color: var(--color-warn); } .ratio.no { color: var(--color-danger); }
+
+  /* type scale */
+  .type-row { display: grid; grid-template-columns: 1fr; gap: var(--space-2); padding: var(--space-5) 0; border-bottom: 1px solid var(--color-divider); }
+  @media (min-width: 768px) { .type-row { grid-template-columns: 180px 1fr; align-items: baseline; gap: var(--space-6); } }
+  .type-row .spec code { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text); }
+  .type-row .spec span { display: block; font-size: var(--text-caption); color: var(--color-text-muted); margin-top: 2px; }
+  .t-display { font-size: 36px; font-weight: 900; letter-spacing: var(--tracking-display); line-height: 1; }
+  @media (min-width: 768px) { .t-display { font-size: var(--text-display); } }
+  .t-heading-xl { font-size: 28px; font-weight: 900; letter-spacing: -0.05em; line-height: var(--leading-heading-xl); }
+  @media (min-width: 768px) { .t-heading-xl { font-size: var(--text-heading-xl); } }
+  .t-heading { font-size: 24px; font-weight: 800; letter-spacing: var(--tracking-heading); line-height: var(--leading-heading); }
+  @media (min-width: 768px) { .t-heading { font-size: var(--text-heading); } }
+  .t-title-lg { font-size: 24px; font-weight: 800; letter-spacing: -0.033em; line-height: var(--leading-title-lg); }
+  @media (min-width: 768px) { .t-title-lg { font-size: var(--text-title-lg); } }
+  .t-title { font-size: 16px; font-weight: 700; letter-spacing: var(--tracking-title); line-height: var(--leading-title); }
+  @media (min-width: 768px) { .t-title { font-size: var(--text-title); } }
+  .t-body-lg { font-size: var(--text-body-lg); line-height: var(--leading-body-lg); color: var(--color-text-muted); max-width: var(--layout-measure); }
+  .t-body { font-size: var(--text-body); line-height: var(--leading-body); color: var(--color-text-muted); max-width: var(--layout-measure); }
+  .t-body-sm { font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-muted); max-width: var(--layout-measure); }
+  .t-caption { font-size: var(--text-caption); line-height: var(--leading-caption); color: var(--color-text-muted); }
+  .t-eyebrow { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-accent-text); }
+  .t-micro { font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; color: var(--color-text-muted); }
+  .outline { color: transparent; -webkit-text-stroke: 1.5px rgba(240, 240, 240, 0.2); }
+  .gradient { background: linear-gradient(90deg, var(--color-accent), var(--color-accent-end)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* scales */
+  .scale { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: flex-end; }
+  .scale .item { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
+  .scale .bar { background: var(--color-accent); height: 12px; border-radius: 2px; }
+  .scale code { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text); }
+  .scale span { font-size: var(--text-micro); color: var(--color-text-muted); }
+  .radius-box { width: 72px; height: 56px; background: var(--color-surface); border: 1px solid var(--color-border-strong); }
+  .elev { width: 160px; height: 88px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: var(--text-caption); color: var(--color-text-muted); }
+  .dot-glow { width: 10px; height: 10px; border-radius: var(--radius-full); background: var(--color-accent); box-shadow: var(--glow-accent); }
+
+  table { width: 100%; border-collapse: collapse; font-size: var(--text-body-sm); }
+  th, td { text-align: left; padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-divider); vertical-align: top; line-height: var(--leading-body-sm); }
+  th { font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; color: var(--color-text-muted); }
+  td { color: var(--color-text-muted); }
+  td strong { color: var(--color-text); font-weight: 600; }
+  td code, li code, p code { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text-soft); }
+  .table-wrap { overflow-x: auto; }
+
+  /* interaction demo pieces (estados forçados por classe) */
+  .matrix td { vertical-align: middle; padding-right: var(--space-3); }
+  .matrix td:first-child { width: 150px; }
+  .card-demo { width: 88px; height: 56px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: var(--text-caption); color: var(--color-text-muted); }
+  .card-demo.hover { border-color: var(--color-border-hover); }
+  .card-demo.pressed { border-color: var(--color-accent); }
+  .card-demo.focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .card-demo.disabled { opacity: .4; }
+  .card-demo.selected { border-color: var(--color-accent); background: var(--color-accent-bg); color: var(--color-text); }
+  .tab-demo { display: inline-flex; padding: var(--space-2-5) var(--space-3); font-size: var(--text-caption); font-weight: 600; color: var(--color-text-muted); border-bottom: 2px solid transparent; border-radius: var(--radius-md) var(--radius-md) 0 0; white-space: nowrap; }
+  .tab-demo.hover { background: var(--color-tint-hover); color: var(--color-text-soft); }
+  .tab-demo.pressed { background: var(--color-tint-pressed); color: var(--color-text-soft); }
+  .tab-demo.focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .tab-demo.disabled { color: var(--color-text-disabled); }
+  .tab-demo.selected { color: var(--color-text); border-bottom-color: var(--color-accent); }
+  .btn-demo { position: relative; display: inline-flex; align-items: center; gap: var(--space-2); background: var(--color-primary); color: var(--color-on-primary); font-weight: 700; font-size: var(--text-caption); padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-md); white-space: nowrap; }
+  .btn-demo.hover { background: var(--color-primary-hover); }
+  .btn-demo.pressed { background: var(--color-primary-pressed); }
+  .btn-demo.focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .btn-demo.disabled { background: rgba(255,255,255,.12); color: var(--color-text-disabled); }
+  .btn-demo.loading .label { visibility: hidden; }
+  .btn-demo.loading::after { content: ""; position: absolute; inset: 0; margin: auto; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(8,8,8,.25); border-top-color: var(--color-on-primary); }
+  .na { font-size: var(--text-caption); color: var(--color-text-muted); }
+
+  ul.rules { padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+  ul.rules li { font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-muted); }
+  ul.rules li strong { color: var(--color-text); font-weight: 600; }
+  .say { display: grid; gap: var(--space-2); grid-template-columns: 1fr 1fr; }
+  .say div { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-soft); }
+  .say div.no { color: var(--color-text-muted); text-decoration: line-through; text-decoration-color: rgba(248,113,113,.5); }
+  .say .h { background: none; border: 0; padding: 0; font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; color: var(--color-text-muted); }
+
+  .decisions { background: var(--color-accent-bg); border: 1px solid var(--color-accent-border); border-radius: var(--radius-xl); padding: var(--space-6); margin-top: var(--space-12); }
+  .decisions h2 { font-size: var(--text-title); font-weight: 700; letter-spacing: var(--tracking-title); margin-bottom: var(--space-3); }
+  .decisions ol { padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+  .decisions li { font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-soft); }
+  .decisions li strong { color: var(--color-text); }
+
+  .light-panel { background: var(--color-bg); color: var(--color-text); border-radius: var(--radius-xl); padding: var(--space-8) var(--space-6); }
+  .light-panel .group-title { color: var(--color-text-muted); }
+  .doc { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-8) var(--space-6); max-width: 560px; box-shadow: var(--shadow); }
+  .doc .t-heading { margin-top: var(--space-6); text-wrap: balance; }
+  .doc p.t-body { margin-top: var(--space-3); }
+  .doc p.t-body strong { color: var(--color-text-soft); font-weight: 600; }
+  .doc .row { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; margin-top: var(--space-6); }
+  .btn-sec { display: inline-flex; align-items: center; font-size: var(--text-caption); font-weight: 600; color: var(--color-text); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); padding: var(--space-2-5) var(--space-3); }
+  .tag { font-size: var(--text-micro); font-weight: 600; color: var(--color-accent-soft); background: var(--color-accent-bg); border: 1px solid var(--color-accent-border); border-radius: var(--radius-sm); padding: var(--space-1) var(--space-2); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="30 30 674 194"
+      height="32"
+      role="img"
+      aria-label="Labub"
+      
+    >
+      <title>Labub</title>
+      <path
+        fill="#6366F1"
+        d="M86 100 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M86 122 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z M170 100 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M170 122 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z"
+      />
+      <path
+        fill="#6366F1"
+        d="M42 42 L64 64 V144 H42Z M214 42 L192 64 V144 H214Z M128 176 L141 189 L128 211.5 L115 189Z M86 135 a11 11 0 1 1 0 22 a11 11 0 1 1 0 -22Z M170 135 a11 11 0 1 1 0 22 a11 11 0 1 1 0 -22Z"
+      />
+      <g transform="translate(254 -12)">
+        <path
+          fill="#F0F0F0"
+          d="M0 60 L22 82 V200 H0Z M84 112 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M84 134 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z M106 112 H128 V200 H106Z"
+        />
+        <path
+          fill="#6366F1"
+          d="M144 60 L166 82 V156 H144Z M188 112 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M188 134 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z M350 60 L372 82 V156 H350Z M394 112 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M394 134 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z"
+        />
+        <path
+          fill="#6366F1"
+          d="M246 112 V156 A44 44 0 0 0 334 156 V112 H312 V156 A22 22 0 0 1 268 156 V112Z"
+        />
+      </g>
+    </svg>
+    <span class="version">Fundações · rascunho v0.1</span>
+  </header>
+
+  <p class="eyebrow">Design system</p>
+  <h1>Fundações da Labub. <span class="faint">Decididas uma vez.</span></h1>
+  <p class="lead">Cores (escuro e claro), tipo, espaço, raio, elevação, layout, movimento e voz. <strong>Tudo vem de <code>tokens.css</code></strong>: componentes pedem um papel, nunca um hex.</p>
+
+  <!-- CORES -->
+  <section class="block">
+    <div class="legend">
+      <h2>Cor</h2>
+      <p>Tema único, escuro. <strong>Um acento só: índigo.</strong> O resto é escala de cinzas.</p>
+      <p>Quatro cinzas de texto, cada um com um trabalho. <strong>Texto informativo nunca abaixo de <code>text-muted</code></strong> (5,6:1). <code>text-faint</code> existe só para a metade apagada de títulos grandes.</p>
+      <p>Índigo puro dá 4,5:1 no fundo: serve para logo, linhas e preenchimento. Em texto pequeno usamos <code>accent-text</code>.</p>
+    </div>
+    <div>
+      <p class="group-title">Chão</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:var(--color-bg)"></div><div class="meta"><code>bg</code><span>#080808 · fundo da página</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-surface)"></div><div class="meta"><code>surface</code><span>#0D0D0D · cards, painéis</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-fill-1)"></div><div class="meta"><code>fill-1</code><span>branco 3% · barras, áreas internas</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-fill-2)"></div><div class="meta"><code>fill-2</code><span>branco 5% · campos, secundário</span></div></div>
+      </div>
+
+      <p class="group-title">Texto</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="color:var(--color-text)">Construímos</div><div class="meta"><code>text</code><span>#F0F0F0 · <b class="ratio ok">17,6:1</b> títulos</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-soft)">frontend, backend</div><div class="meta"><code>text-soft</code><span>#B4B4B4 · <b class="ratio ok">9,7:1</b> destaque, citação</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-muted)">Do zero ao deploy</div><div class="meta"><code>text-muted</code><span>#888 · <b class="ratio ok">5,6:1</b> corpo, rótulos</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-faint);font-size:20px;font-weight:800">para começar.</div><div class="meta"><code>text-faint</code><span>#6B6B6B · <b class="ratio lg">3,8:1</b> só título ≥ 24px</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-placeholder);font-weight:400">seu@email.com</div><div class="meta"><code>text-placeholder</code><span>#5A5A5A · <b class="ratio no">2,9:1</b> nunca informação</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-disabled)">Indisponível</div><div class="meta"><code>text-disabled</code><span>#4A4A4A · peça desativada</span></div></div>
+      </div>
+
+      <p class="group-title">Acento</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:var(--color-accent);color:#fff">Índigo</div><div class="meta"><code>accent</code><span>#6366F1 · logo, linhas, preenchimento</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-accent-text);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600">Simples assim</div><div class="meta"><code>accent-text</code><span>#818CF8 · <b class="ratio ok">6,7:1</b> eyebrow, link</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-accent-bg);color:var(--color-accent-soft);font-size:11px">Aceitando projetos</div><div class="meta"><code>accent-soft</code> + <code>accent-bg</code><span>#A5B4FC sobre índigo 10%</span></div></div>
+        <div class="sw"><div class="chip"><span class="gradient" style="font-size:20px;font-weight:900;letter-spacing:-.04em">negócios.</span></div><div class="meta"><code>accent → accent-end</code><span>degradê só no título do hero</span></div></div>
+      </div>
+
+      <p class="group-title">Linhas e ação</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="box-shadow:inset 0 0 0 1px var(--color-border)"></div><div class="meta"><code>border</code><span>branco 7% · cards, tags</span></div></div>
+        <div class="sw"><div class="chip" style="box-shadow:inset 0 0 0 1px var(--color-border-strong)"></div><div class="meta"><code>border-strong</code><span>branco 15% · secundário</span></div></div>
+        <div class="sw"><div class="chip" style="box-shadow:inset 0 0 0 1px var(--color-border-hover)"></div><div class="meta"><code>border-hover</code><span>índigo 35% · hover com borda</span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-primary);color:var(--color-on-primary)">Fale com a gente →</div><div class="meta"><code>primary</code> / <code>on-primary</code><span>branco + #080808 · <b class="ratio ok">20:1</b></span></div></div>
+      </div>
+
+      <p class="group-title">Status (reservado) e terceiros</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:var(--color-success-bg);color:var(--color-success)">Enviado</div><div class="meta"><code>success</code><span>#34D399 · <b class="ratio ok">10,4:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-warn-bg);color:var(--color-warn)">Atenção</div><div class="meta"><code>warn</code><span>#FBBF24 · <b class="ratio ok">12:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-danger-bg);color:var(--color-danger)">Não enviou</div><div class="meta"><code>danger</code><span>#F87171 · <b class="ratio ok">7,2:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-ext-whatsapp)">WhatsApp</div><div class="meta"><code>ext-whatsapp</code><span>#25D366 · só no link do WhatsApp</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOGRAFIA -->
+  <section class="block">
+    <div class="legend">
+      <h2>Tipo</h2>
+      <p><strong>Inter, pesada e apertada.</strong> Títulos em 800–900 com tracking negativo; eyebrows em caixa alta com tracking positivo.</p>
+      <p>Onze tamanhos, com nome de uso. Os doze tamanhos soltos de hoje (12, 12,5, 13, 14, 14,5, 15…) caem nestes.</p>
+      <p>Títulos usam <code>text-wrap: balance</code>; parágrafos, <code>pretty</code>.</p>
+    </div>
+    <div>
+      <div class="type-row"><div class="spec"><code>display</code><span>36 → 64 · 900 · −0,047em · 1</span></div><div class="t-display">Construímos</div></div>
+      <div class="type-row"><div class="spec"><code>heading-xl</code><span>28 → 48 · 900 · −0,05em · 1,05</span></div><div class="t-heading-xl">A gente cuida do seu digital.</div></div>
+      <div class="type-row"><div class="spec"><code>heading</code><span>24 → 36 · 800 · −0,04em · 1,1</span></div><div class="t-heading">Três passos <span style="color:var(--color-text-faint)">para começar.</span></div></div>
+      <div class="type-row"><div class="spec"><code>title-lg</code><span>24 → 30 · 800 · 1,15</span></div><div class="t-title-lg">Frontend</div></div>
+      <div class="type-row"><div class="spec"><code>title</code><span>16 → 18 · 700 · −0,025em · 1,3</span></div><div class="t-title">A gente monta o time</div></div>
+      <div class="type-row"><div class="spec"><code>body-lg</code><span>16 · 400 · 1,7</span></div><div class="t-body-lg">A Labub é um time completo de frontend, backend, UX e DevOps.</div></div>
+      <div class="type-row"><div class="spec"><code>body</code><span>15 · 400 · 1,7</span></div><div class="t-body">Sem compromisso. A gente responde em até 24h.</div></div>
+      <div class="type-row"><div class="spec"><code>body-sm</code><span>13 · 400 · 1,65</span></div><div class="t-body-sm">Selecionamos os especialistas ideais e apresentamos uma proposta clara e sem enrolação.</div></div>
+      <div class="type-row"><div class="spec"><code>caption</code><span>12 · 400–700 · 1,5</span></div><div class="t-caption">CEO | Founder, SOSCONSTRUIR</div></div>
+      <div class="type-row"><div class="spec"><code>eyebrow</code><span>11 · 600 · caixa alta · +0,18em</span></div><div class="t-eyebrow">Quem faz acontecer</div></div>
+      <div class="type-row"><div class="spec"><code>micro</code><span>10 · 600 · +0,1em</span></div><div class="t-micro">Projetos entregues</div></div>
+      <div class="type-row"><div class="spec"><code>mono</code><span>pilha do sistema · 11–12</span></div><div style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-muted)">labub.dev/servicos/<span style="color:var(--color-text)">frontend</span></div></div>
+    </div>
+  </section>
+
+  <!-- ESPAÇO / RAIO / ELEVAÇÃO / LAYOUT -->
+  <section class="block">
+    <div class="legend">
+      <h2>Espaço e forma</h2>
+      <p><strong>Base de 4px.</strong> Só os valores que o site usa. Apertado dentro do grupo, largo entre grupos.</p>
+      <p><strong>Sem sombra em card.</strong> Profundidade vem de borda de 1px e de luz índigo. As duas sombras ficam reservadas para coisas que flutuam (menu, diálogo).</p>
+    </div>
+    <div>
+      <p class="group-title">Espaço</p>
+      <div class="scale">
+        <div class="item"><div class="bar" style="width:4px"></div><code>1</code><span>4</span></div>
+        <div class="item"><div class="bar" style="width:6px"></div><code>1-5</code><span>6</span></div>
+        <div class="item"><div class="bar" style="width:8px"></div><code>2</code><span>8</span></div>
+        <div class="item"><div class="bar" style="width:10px"></div><code>2-5</code><span>10</span></div>
+        <div class="item"><div class="bar" style="width:12px"></div><code>3</code><span>12</span></div>
+        <div class="item"><div class="bar" style="width:16px"></div><code>4</code><span>16</span></div>
+        <div class="item"><div class="bar" style="width:20px"></div><code>5</code><span>20</span></div>
+        <div class="item"><div class="bar" style="width:24px"></div><code>6</code><span>24</span></div>
+        <div class="item"><div class="bar" style="width:28px"></div><code>7</code><span>28</span></div>
+        <div class="item"><div class="bar" style="width:32px"></div><code>8</code><span>32</span></div>
+        <div class="item"><div class="bar" style="width:48px"></div><code>12</code><span>48</span></div>
+        <div class="item"><div class="bar" style="width:64px"></div><code>16</code><span>64</span></div>
+        <div class="item"><div class="bar" style="width:120px"></div><code>section</code><span>64 → 120</span></div>
+      </div>
+
+      <p class="group-title">Raio</p>
+      <div class="scale">
+        <div class="item"><div class="radius-box" style="border-radius:var(--radius-sm)"></div><code>sm 6</code><span>tags</span></div>
+        <div class="item"><div class="radius-box" style="border-radius:var(--radius-md)"></div><code>md 8</code><span>botões, campos</span></div>
+        <div class="item"><div class="radius-box" style="border-radius:var(--radius-lg)"></div><code>lg 12</code><span>cards</span></div>
+        <div class="item"><div class="radius-box" style="border-radius:var(--radius-xl)"></div><code>xl 16</code><span>painéis, mockups</span></div>
+        <div class="item"><div class="radius-box" style="border-radius:var(--radius-full);width:56px"></div><code>full</code><span>pills, avatares</span></div>
+      </div>
+
+      <p class="group-title">Elevação e luz</p>
+      <div class="scale">
+        <div class="item"><div class="elev">card: só borda</div><code>nenhuma</code><span>padrão</span></div>
+        <div class="item"><div class="elev" style="box-shadow:var(--shadow)">menu</div><code>shadow</code><span>reservado</span></div>
+        <div class="item"><div class="elev" style="box-shadow:var(--shadow-strong)">diálogo</div><code>shadow-strong</code><span>reservado</span></div>
+        <div class="item"><div class="elev"><span class="dot-glow"></span></div><code>glow-accent</code><span>badge, barra de carga</span></div>
+      </div>
+
+      <p class="group-title">Layout</p>
+      <div class="table-wrap"><table>
+        <tr><th>Token</th><th>Celular</th><th>Desktop (≥ 768)</th><th>Uso</th></tr>
+        <tr><td><strong>layout-max</strong></td><td colspan="2">1440px</td><td>largura da página</td></tr>
+        <tr><td><strong>layout-gutter</strong></td><td>16px</td><td>48px</td><td>margem lateral de toda seção</td></tr>
+        <tr><td><strong>space-section</strong></td><td>64px</td><td>120px</td><td>respiro vertical de seção</td></tr>
+        <tr><td><strong>layout-measure</strong></td><td colspan="2">60ch</td><td>largura máxima de parágrafo</td></tr>
+        <tr><td><strong>layout-grid-cell</strong></td><td colspan="2">48px</td><td>grid índigo 4% do fundo</td></tr>
+        <tr><td><strong>gap de grid</strong></td><td colspan="2">12px (<code>space-3</code>)</td><td>entre cards</td></tr>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- MOVIMENTO -->
+  <section class="block">
+    <div class="legend">
+      <h2>Movimento</h2>
+      <p><strong>Só onde ajuda:</strong> chegadas e mudanças. Abrir é mais lento que fechar. Pressionar é instantâneo.</p>
+      <p>Com <strong>reduzir movimento</strong>, tudo para: carrossel, fade, barra de carga e fumaça do cursor.</p>
+    </div>
+    <div class="table-wrap"><table>
+      <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+      <tr><td><strong>duration-quick</strong></td><td>150ms</td><td>hover de cor e borda (entrada)</td></tr>
+      <tr><td><strong>duration-fast</strong></td><td>250ms</td><td>hover-out, fechar</td></tr>
+      <tr><td><strong>duration-medium</strong></td><td>350ms</td><td>conteúdo entrando (fade + 8px para cima)</td></tr>
+      <tr><td><strong>duration-slow</strong></td><td>500ms</td><td>barra de carregamento das abas</td></tr>
+      <tr><td><strong>duration-marquee</strong></td><td>40s</td><td>volta do carrossel de métricas</td></tr>
+      <tr><td><strong>ease</strong></td><td><code>cubic-bezier(.2,0,0,1)</code></td><td>uma curva para quase tudo</td></tr>
+    </table></div>
+  </section>
+
+  <!-- REGRAS DE INTERAÇÃO -->
+  <section class="block wide">
+    <div class="legend">
+      <h2>Regras de interação</h2>
+      <p>Decididas uma vez; todo componente segue em vez de inventar o seu.</p>
+      <p><strong>Hover é mais discreto que selecionado.</strong> Selecionar nunca muda o peso da fonte. O anel de foco só aparece pelo teclado (<code>:focus-visible</code>).</p>
+      <p>Carregando mantém o tamanho exato: o rótulo fica invisível e o spinner fica por cima.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="matrix">
+        <tr><th>Tipo</th><th>Normal</th><th>Hover</th><th>Pressionado</th><th>Foco</th><th>Desativado</th><th>Carregando</th><th>Selecionado</th></tr>
+        <tr>
+          <td><strong>Com borda</strong><br>card-link, secundário, tag clicável</td>
+          <td><div class="card-demo">Case</div></td>
+          <td><div class="card-demo hover">Case</div></td>
+          <td><div class="card-demo pressed">Case</div></td>
+          <td><div class="card-demo focus">Case</div></td>
+          <td><div class="card-demo disabled">Case</div></td>
+          <td><span class="na">n/a: card não carrega</span></td>
+          <td><div class="card-demo selected">Case</div></td>
+        </tr>
+        <tr>
+          <td><strong>Sem borda</strong><br>aba, link da nav</td>
+          <td><span class="tab-demo">FullStack</span></td>
+          <td><span class="tab-demo hover">FullStack</span></td>
+          <td><span class="tab-demo pressed">FullStack</span></td>
+          <td><span class="tab-demo focus">FullStack</span></td>
+          <td><span class="tab-demo disabled">FullStack</span></td>
+          <td><span class="na">n/a: troca é instantânea</span></td>
+          <td><span class="tab-demo selected">FullStack</span></td>
+        </tr>
+        <tr>
+          <td><strong>Principal</strong><br>um por tela</td>
+          <td><span class="btn-demo"><span class="label">Começar →</span></span></td>
+          <td><span class="btn-demo hover"><span class="label">Começar →</span></span></td>
+          <td><span class="btn-demo pressed"><span class="label">Começar →</span></span></td>
+          <td><span class="btn-demo focus"><span class="label">Começar →</span></span></td>
+          <td><span class="btn-demo disabled"><span class="label">Começar →</span></span></td>
+          <td><span class="btn-demo loading"><span class="label">Começar →</span></span></td>
+          <td><span class="na">n/a: ação, não escolha</span></td>
+        </tr>
+      </table>
+      <ul class="rules" style="margin-top:var(--space-6)">
+        <li><strong>Com borda:</strong> hover muda só a borda (<code>border-hover</code>), sem fundo. Pressionado: borda <code>accent</code>. Selecionado: borda <code>accent</code> + fundo <code>accent-bg</code>.</li>
+        <li><strong>Sem borda:</strong> hover usa <code>tint-hover</code> e texto <code>text-soft</code>. Selecionado: texto <code>text</code> + sublinhado de 2px <code>accent</code>, sempre presente (transparente em repouso).</li>
+        <li><strong>Principal:</strong> branco; hover <code>primary-hover</code>; pressionado <code>primary-pressed</code> sem transição. Um só por tela.</li>
+        <li><strong>Foco:</strong> anel de 2px <code>focus</code>, afastado 2px, com o mesmo raio da peça.</li>
+        <li><strong>Cursor:</strong> mão em tudo que é link ou botão (convenção da web); seta no resto. Nada reage a hover se não for clicável.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TEMA CLARO -->
+  <section class="block">
+    <div class="legend">
+      <h2>Tema claro</h2>
+      <p>Para <strong>propostas em PDF, documentos e e-mail</strong>. Mesmos papéis, valores trocados: ative com <code>data-theme="light"</code>.</p>
+      <p><strong>No claro, a ação principal é escura</strong> (grafite do kit), espelhando o botão branco do escuro.</p>
+      <p>Índigo de texto vira <code>#4F46E5</code> e o de fundo translúcido, <code>#4338CA</code>: as duas cores do kit da logo.</p>
+    </div>
+    <div class="light-panel" data-theme="light">
+      <div class="doc">
+        <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="30 30 674 194"
+      height="28"
+      role="img"
+      aria-label="Labub"
+      
+    >
+      <title>Labub</title>
+      <path
+        fill="#6366F1"
+        d="M86 100 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M86 122 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z M170 100 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M170 122 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z"
+      />
+      <path
+        fill="#6366F1"
+        d="M42 42 L64 64 V144 H42Z M214 42 L192 64 V144 H214Z M128 176 L141 189 L128 211.5 L115 189Z M86 135 a11 11 0 1 1 0 22 a11 11 0 1 1 0 -22Z M170 135 a11 11 0 1 1 0 22 a11 11 0 1 1 0 -22Z"
+      />
+      <g transform="translate(254 -12)">
+        <path
+          fill="#0D0D0D"
+          d="M0 60 L22 82 V200 H0Z M84 112 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M84 134 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z M106 112 H128 V200 H106Z"
+        />
+        <path
+          fill="#6366F1"
+          d="M144 60 L166 82 V156 H144Z M188 112 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M188 134 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z M350 60 L372 82 V156 H350Z M394 112 a44 44 0 1 1 0 88 a44 44 0 1 1 0 -88Z M394 134 a22 22 0 1 0 0 44 a22 22 0 1 0 0 -44Z"
+        />
+        <path
+          fill="#6366F1"
+          d="M246 112 V156 A44 44 0 0 0 334 156 V112 H312 V156 A22 22 0 0 1 268 156 V112Z"
+        />
+      </g>
+    </svg>
+        <p class="t-eyebrow" style="margin-top:var(--space-8)">Proposta comercial</p>
+        <div class="t-heading">Seu app no ar <span style="color:var(--color-text-faint)">em 12 semanas.</span></div>
+        <p class="t-body">A gente monta o time de <strong>frontend, backend, UX e DevOps</strong> e entrega com atualização toda semana.</p>
+        <div class="row"><span class="btn-demo"><span class="label">Aprovar proposta →</span></span><span class="btn-sec">Baixar PDF</span><span class="tag">DevOps</span><span class="tag">UX</span></div>
+      </div>
+
+      <p class="group-title" style="margin-top:var(--space-8)">Texto e acento no claro</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="color:var(--color-text)">Construímos</div><div class="meta"><code>text</code><span>#0D0D0D · <b class="ratio ok">18,6:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-soft)">frontend, backend</div><div class="meta"><code>text-soft</code><span>#3A3A3A · <b class="ratio ok">10,9:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-muted)">Do zero ao deploy</div><div class="meta"><code>text-muted</code><span>#5C5C5C · <b class="ratio ok">6,4:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-text-faint);font-size:20px;font-weight:800">em 12 semanas.</div><div class="meta"><code>text-faint</code><span>#8A8A8A · <b class="ratio lg">3,3:1</b> só título ≥ 24px</span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-accent-text);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600">Proposta</div><div class="meta"><code>accent-text</code><span>#4F46E5 · <b class="ratio ok">6,0:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-primary);color:var(--color-on-primary)">Aprovar →</div><div class="meta"><code>primary</code><span>#0D0D0D + branco · <b class="ratio ok">19,4:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="background:var(--color-danger-bg);color:var(--color-danger)">Vencida</div><div class="meta"><code>danger</code><span>#B91C1C · <b class="ratio ok">6,2:1</b></span></div></div>
+        <div class="sw"><div class="chip" style="color:var(--color-ext-whatsapp)">WhatsApp</div><div class="meta"><code>ext-whatsapp</code><span>#15803D · <b class="ratio ok">4,8:1</b></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOZ -->
+  <section class="block">
+    <div class="legend">
+      <h2>Como a gente escreve</h2>
+      <p>Informal-profissional. <strong>Fala com você; a marca é "a gente".</strong> Termo técnico sem rodeio.</p>
+    </div>
+    <div>
+      <ul class="rules">
+        <li><strong>Títulos de 3 a 7 palavras, com ponto final.</strong> Sem exclamação, sem emoji no texto.</li>
+        <li><strong>Botão diz o que acontece:</strong> verbo + objeto ("Chamar no WhatsApp", "Ver no GitHub ↗"). Nunca "Clique aqui".</li>
+        <li><strong>Número concreto em vez de promessa vaga:</strong> "Resposta em até 24h", e só número que a página comprova.</li>
+        <li><strong>Uma frase curta por bloco.</strong> Corta adjetivo antes de cortar informação.</li>
+        <li>Seta → para ir a um lugar da página; ↗ para sair do site.</li>
+      </ul>
+      <div class="say" style="margin-top:var(--space-6)">
+        <div class="h">Fala assim</div><div class="h">Não fala assim</div>
+        <div>A gente cuida do seu digital.</div><div class="no">Nossa empresa oferece soluções digitais completas.</div>
+        <div>Proposta clara e sem enrolação.</div><div class="no">Proposta comercial personalizada conforme suas necessidades.</div>
+        <div>Chamar no WhatsApp</div><div class="no">Clique aqui</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="decisions">
+    <h2>8 decisões: preciso do seu ok</h2>
+    <ol>
+      <li><strong>Índigo em texto pequeno vira <code>#818CF8</code>.</strong> O <code>#6366F1</code> dá 4,48:1 nos eyebrows de 11px (abaixo do mínimo). Logo, linhas e preenchimentos continuam em <code>#6366F1</code>.</li>
+      <li><strong>Cinzas de texto caem de 9 para 4:</strong> <code>#E0E0E0</code> → <code>text</code>; <code>#AAA</code>/<code>#D4D4D4</code> → <code>text-soft</code>; <code>#555</code>/<code>#444</code>/<code>#333</code> já tinham saído.</li>
+      <li><strong>Hover de peça com borda é só a borda índigo</strong> (regra que a marca já usa nos cards). O botão "Ver no GitHub" perde o fundo no hover.</li>
+      <li><strong>Tags com um raio só (6px)</strong>; hoje há 4px e 6px.</li>
+      <li><strong>Fundo oficial é <code>#080808</code></strong>; <code>#0D0D0D</code> é o card. O kit da logo chama <code>#0D0D0D</code> de fundo; o site manda.</li>
+      <li><strong>Um conjunto de ícones:</strong> trocar os emojis (🖥️ ⚙️ 🎨 🚀 🔒) por um set em linha de 2px, como o globo do Time (sugestão: Lucide).</li>
+      <li><strong>Cores fora do sistema saem:</strong> estrelas âmbar viram <code>text-soft</code>, bolinhas de semáforo do mockup viram cinza. O verde do WhatsApp fica como exceção nomeada.</li>
+      <li><strong>Tema claro com botão principal escuro</strong> (<code>#0D0D0D</code>) e índigos do kit (<code>#4F46E5</code> para texto, <code>#4338CA</code> sobre fundo índigo). O verde do WhatsApp vira <code>#15803D</code> no claro.</li>
+    </ol>
+  </div>
+
+</div>
+</body>
+</html>

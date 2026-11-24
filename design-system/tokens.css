@@ -1,0 +1,169 @@
+/* Labub · tokens (rascunho das fundações, v0.1)
+   Papéis, não valores: componentes pedem --color-text-muted, nunca #888.
+   Tema único escuro. Contraste medido sobre --color-bg (#080808). */
+
+:root {
+  /* ── Chão ───────────────────────────────────────────── */
+  --color-bg: #080808;               /* fundo da página */
+  --color-surface: #0d0d0d;          /* cards, painéis */
+  --color-fill-1: rgba(255, 255, 255, 0.03); /* barra de navegador, áreas internas */
+  --color-fill-2: rgba(255, 255, 255, 0.05); /* campos, placeholders, botão secundário */
+  --color-nav: rgba(8, 8, 8, 0.85);  /* nav fixa com blur */
+
+  /* ── Texto ──────────────────────────────────────────── */
+  --color-text: #f0f0f0;             /* títulos e texto principal · 17.6:1 */
+  --color-text-soft: #b4b4b4;        /* destaque dentro do corpo, citações · 9.7:1 */
+  --color-text-muted: #888888;       /* corpo, legendas, rótulos · 5.6:1 */
+  --color-text-faint: #6b6b6b;       /* só a metade apagada de títulos ≥ 24px · 3.8:1 */
+  --color-text-placeholder: #5a5a5a; /* exemplo em campo vazio (nunca informação) */
+  --color-text-disabled: #4a4a4a;
+  --color-on-primary: #080808;       /* texto sobre o botão branco */
+  --color-on-accent: #ffffff;        /* texto sobre índigo cheio (só ≥ 18px bold) */
+
+  /* ── Linhas ─────────────────────────────────────────── */
+  --color-border: rgba(255, 255, 255, 0.07);       /* cards, tags, campos */
+  --color-border-strong: rgba(255, 255, 255, 0.15);/* botão secundário, ícone redondo */
+  --color-border-hover: rgba(99, 102, 241, 0.35);  /* hover de peça com borda (regra da marca) */
+  --color-divider: rgba(255, 255, 255, 0.05);      /* entre linhas de lista, rodapé */
+
+  /* ── Acento (índigo) ────────────────────────────────── */
+  --color-accent: #6366f1;           /* logo, linhas, preenchimentos, sublinhado de aba */
+  --color-accent-text: #818cf8;      /* índigo em texto pequeno (eyebrow, links) · 6.7:1 */
+  --color-accent-soft: #a5b4fc;      /* texto sobre fundo índigo translúcido (badge, tag) */
+  --color-accent-bg: rgba(99, 102, 241, 0.10);
+  --color-accent-border: rgba(99, 102, 241, 0.25);
+  --color-accent-glow: rgba(99, 102, 241, 0.12);
+  --color-accent-grid: rgba(99, 102, 241, 0.04);
+  --color-accent-end: #3b82f6;       /* fim do degradê do título */
+
+  /* ── Sobreposições para peças sem borda ─────────────── */
+  --color-tint-hover: rgba(255, 255, 255, 0.04);
+  --color-tint-selected: rgba(255, 255, 255, 0.08);
+  --color-tint-pressed: rgba(255, 255, 255, 0.10);
+
+  /* ── Ação principal (botão branco) ──────────────────── */
+  --color-primary: #ffffff;
+  --color-primary-hover: #e6e6e6;
+  --color-primary-pressed: #d4d4d4;
+
+  --color-focus: #818cf8;
+  --color-overlay: rgba(0, 0, 0, 0.72);
+
+  /* ── Status (reservado: o site ainda não tem) ───────── */
+  --color-success: #34d399;  --color-success-bg: rgba(52, 211, 153, 0.10);
+  --color-warn: #fbbf24;     --color-warn-bg: rgba(251, 191, 36, 0.10);
+  --color-danger: #f87171;   --color-danger-bg: rgba(248, 113, 113, 0.10);
+
+  /* ── Cores de terceiros (exceções nomeadas) ─────────── */
+  --color-ext-whatsapp: #25d366;
+
+  /* ── Tipografia ─────────────────────────────────────── */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* tamanho / altura de linha (celular → desktop onde muda) */
+  --text-display: 64px;     --leading-display: 1;      /* H1 hero (36 no celular) */
+  --text-heading-xl: 48px;  --leading-heading-xl: 1.05;/* H2 de destaque (28 no celular) */
+  --text-heading: 36px;     --leading-heading: 1.1;    /* H2 de seção (24 no celular) */
+  --text-title-lg: 30px;    --leading-title-lg: 1.15;  /* título de painel (24 no celular) */
+  --text-title: 18px;       --leading-title: 1.3;      /* título de card (16 no celular) */
+  --text-body-lg: 16px;     --leading-body-lg: 1.7;    /* subtítulo do hero, lead */
+  --text-body: 15px;        --leading-body: 1.7;
+  --text-body-sm: 13px;     --leading-body-sm: 1.65;   /* corpo de card */
+  --text-caption: 12px;     --leading-caption: 1.5;    /* botão pequeno, rodapé, cargo */
+  --text-eyebrow: 11px;     /* caixa alta, 600, +0.18em */
+  --text-micro: 10px;       /* tags, rótulos de métrica: caixa alta ou 600 */
+
+  --tracking-display: -0.047em;
+  --tracking-heading: -0.04em;
+  --tracking-title: -0.025em;
+  --tracking-caps: 0.18em;
+  --tracking-caps-sm: 0.1em;
+
+  /* ── Espaço (base 4px; só os valores em uso) ────────── */
+  --space-1: 4px;  --space-1-5: 6px; --space-2: 8px;  --space-2-5: 10px;
+  --space-3: 12px; --space-4: 16px;  --space-5: 20px; --space-6: 24px;
+  --space-7: 28px; --space-8: 32px;  --space-12: 48px; --space-16: 64px;
+  --space-section: 120px;   /* respiro vertical de seção (64 no celular) */
+
+  /* ── Raio ───────────────────────────────────────────── */
+  --radius-sm: 6px;    /* tags */
+  --radius-md: 8px;    /* botões, campos */
+  --radius-lg: 12px;   /* cards */
+  --radius-xl: 16px;   /* painéis grandes, mockups */
+  --radius-full: 9999px; /* pills, badges, avatares, botão-ícone */
+
+  /* ── Elevação ───────────────────────────────────────── */
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);          /* menus, popovers (reservado) */
+  --shadow-strong: 0 24px 64px rgba(0, 0, 0, 0.7);  /* diálogos (reservado) */
+  --glow-accent: 0 0 8px rgba(99, 102, 241, 0.7);   /* assinatura: bolinha do badge, barra de carga */
+
+  /* ── Layout ─────────────────────────────────────────── */
+  --layout-max: 1440px;
+  --layout-gutter: 48px;    /* 16 no celular */
+  --layout-measure: 60ch;   /* largura máxima de parágrafo */
+  --layout-grid-cell: 48px; /* grid índigo de fundo */
+  --bp-md: 768px;
+
+  /* ── Movimento ──────────────────────────────────────── */
+  --duration-quick: 150ms;  /* hover de cor e borda */
+  --duration-fast: 250ms;   /* fechar, hover-out */
+  --duration-medium: 350ms; /* entrar conteúdo (fade-in-up) */
+  --duration-slow: 500ms;   /* barra de carregamento */
+  --duration-marquee: 40s;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ── Tema claro ─────────────────────────────────────────
+   Para propostas em PDF, documentos e e-mail (DESIGN.md › Constraints).
+   Mesmos papéis, valores trocados. Contraste medido sobre --color-bg (#FAFAFA).
+   Ative com data-theme="light" no elemento raiz do documento. */
+[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-fill-1: rgba(13, 13, 13, 0.03);
+  --color-fill-2: rgba(13, 13, 13, 0.05);
+  --color-nav: rgba(250, 250, 250, 0.85);
+
+  --color-text: #0d0d0d;             /* grafite do kit · 18.6:1 */
+  --color-text-soft: #3a3a3a;        /* 10.9:1 */
+  --color-text-muted: #5c5c5c;       /* 6.4:1 */
+  --color-text-faint: #8a8a8a;       /* só título ≥ 24px · 3.3:1 */
+  --color-text-placeholder: #a3a3a3;
+  --color-text-disabled: #bdbdbd;
+  --color-on-primary: #ffffff;
+  --color-on-accent: #ffffff;
+
+  --color-border: rgba(13, 13, 13, 0.10);
+  --color-border-strong: rgba(13, 13, 13, 0.18);
+  --color-border-hover: rgba(79, 70, 229, 0.45);
+  --color-divider: rgba(13, 13, 13, 0.07);
+
+  --color-accent: #6366f1;
+  --color-accent-text: #4f46e5;      /* índigo escuro do kit · 6.0:1 */
+  --color-accent-soft: #4338ca;      /* índigo profundo do kit, sobre accent-bg · 7.0:1 */
+  --color-accent-bg: rgba(99, 102, 241, 0.08);
+  --color-accent-border: rgba(99, 102, 241, 0.25);
+  --color-accent-glow: rgba(99, 102, 241, 0.10);
+  --color-accent-grid: rgba(99, 102, 241, 0.06);
+
+  --color-tint-hover: rgba(13, 13, 13, 0.04);
+  --color-tint-selected: rgba(13, 13, 13, 0.07);
+  --color-tint-pressed: rgba(13, 13, 13, 0.10);
+
+  --color-primary: #0d0d0d;          /* no claro, a ação principal é escura · 19.4:1 */
+  --color-primary-hover: #2a2a2a;
+  --color-primary-pressed: #3a3a3a;
+
+  --color-focus: #4f46e5;
+  --color-overlay: rgba(13, 13, 13, 0.5);
+
+  --color-success: #047857;  --color-success-bg: rgba(4, 120, 87, 0.08);
+  --color-warn: #b45309;     --color-warn-bg: rgba(180, 83, 9, 0.08);
+  --color-danger: #b91c1c;   --color-danger-bg: rgba(185, 28, 28, 0.08);
+
+  --color-ext-whatsapp: #15803d;     /* o verde da marca não passa no claro */
+
+  --shadow: 0 8px 24px rgba(13, 13, 13, 0.10);
+  --shadow-strong: 0 24px 64px rgba(13, 13, 13, 0.18);
+}
