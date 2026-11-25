@@ -5,27 +5,27 @@ export default function OpenSource() {
       aria-labelledby="opensource-title"
       className="px-4 md:px-12 py-16 md:py-[120px]"
     >
-      <p className="text-[11px] text-accent uppercase tracking-[2px] font-semibold mb-3">
+      <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-3">
         O que inventamos
       </p>
       <h2
         id="opensource-title"
-        className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12"
+        className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-text mb-8 md:mb-12"
       >
         Projetos OpenSource,{' '}
-        <span className="text-faint">utilize como quiser!</span>
+        <span className="text-text-faint">utilize como quiser!</span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         <article
-          className="block bg-card border border-white/[0.06] rounded-xl overflow-hidden hover:border-accent/[0.3] transition-colors"
+          className="block bg-surface border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors"
         >
           <a
             href="https://www.codequestions.dev/pt"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ver projeto Codequestions"
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           >
             <div className="h-[140px] flex items-center justify-center bg-gradient-to-br from-[#0a0a0a] to-[#1f2937]">
               {/* eslint-disable-next-line @next/next/no-img-element -- local SVG wordmark, no optimization needed */}
@@ -39,13 +39,13 @@ export default function OpenSource() {
             </div>
 
             <div className="p-5">
-              <p className="text-[10px] text-accent font-semibold uppercase tracking-[1px] mb-2">
+              <p className="text-micro text-accent-text font-semibold uppercase tracking-[1px] mb-2">
                 Código aberto · Entrevistas técnicas
               </p>
-              <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
+              <h3 className="text-body font-bold text-text tracking-tight">
                 Codequestions
               </h3>
-              <p className="text-[12px] text-body mt-1.5 leading-[1.5]">
+              <p className="text-caption text-text-muted mt-1.5 leading-[1.5]">
                 Plataforma de código aberto para ajudar na preparação para entrevistas
                 técnicas em todas as áreas de TI. Pratique com perguntas, respostas
                 explicadas e flashcards, e acompanhe sua evolução para chegar mais
@@ -55,7 +55,7 @@ export default function OpenSource() {
                 {['Open Source', 'Perguntas e respostas', 'Flashcards'].map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] text-body border border-[#1e1e1e] px-2 py-0.5 rounded"
+                    className="text-micro text-text-muted border border-border px-2 py-0.5 rounded-sm"
                   >
                     {tag}
                   </span>
@@ -69,7 +69,7 @@ export default function OpenSource() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ver repositório do Codequestions no GitHub"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.04] px-3.5 py-2 text-[12px] font-semibold text-[#e0e0e0] hover:border-accent/40 hover:bg-accent/10 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-card"
+              className="inline-flex items-center gap-2 rounded-md border border-border-strong bg-fill-2 px-3.5 py-2 text-caption font-semibold text-text hover:border-border-hover hover:bg-accent-bg hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             >
               Ver no GitHub
               <span aria-hidden="true">↗</span>
@@ -77,14 +77,14 @@ export default function OpenSource() {
           </div>
         </article>
         <article
-          className="block bg-card border border-white/[0.06] rounded-xl overflow-hidden hover:border-accent/[0.3] transition-colors"
+          className="block bg-surface border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors"
         >
           <a
             href="https://iplogger.com.br/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ver projeto Ip Logger"
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
           >
             <div className="h-[140px] flex items-center justify-center gap-3 bg-gradient-to-br from-[#0a0a0a] to-[#1f2937]">
               <svg
@@ -109,13 +109,13 @@ export default function OpenSource() {
             </div>
 
             <div className="p-5">
-              <p className="text-[10px] text-accent font-semibold uppercase tracking-[1px] mb-2">
+              <p className="text-micro text-accent-text font-semibold uppercase tracking-[1px] mb-2">
                 Código aberto · Cibersegurança
               </p>
-              <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
+              <h3 className="text-body font-bold text-text tracking-tight">
                 Ip Logger
               </h3>
-              <p className="text-[12px] text-body mt-1.5 leading-[1.5]">
+              <p className="text-caption text-text-muted mt-1.5 leading-[1.5]">
                 Plataforma open source de cibersegurança para verificar URLs,
                 consultar IPs e domínios e analisar a origem dos acessos. Inclui
                 links curtos com monitoramento, análise de risco, alertas e notas
@@ -125,7 +125,7 @@ export default function OpenSource() {
                 {['Open Source', 'Cibersegurança', 'Análise de URLs e IPs'].map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] text-body border border-[#1e1e1e] px-2 py-0.5 rounded"
+                    className="text-micro text-text-muted border border-border px-2 py-0.5 rounded-sm"
                   >
                     {tag}
                   </span>
@@ -139,7 +139,7 @@ export default function OpenSource() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Ver repositório do Ip Logger no GitHub"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.04] px-3.5 py-2 text-[12px] font-semibold text-[#e0e0e0] hover:border-accent/40 hover:bg-accent/10 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-card"
+              className="inline-flex items-center gap-2 rounded-md border border-border-strong bg-fill-2 px-3.5 py-2 text-caption font-semibold text-text hover:border-border-hover hover:bg-accent-bg hover:text-text transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             >
               Ver no GitHub
               <span aria-hidden="true">↗</span>

@@ -11,12 +11,12 @@ const themeClasses: Record<Case['theme'], string> = {
 export default function Cases() {
   return (
     <section id="cases" className="px-4 md:px-12 py-16 md:py-[120px]">
-      <p className="text-[11px] text-accent uppercase tracking-[2px] font-semibold mb-3">
+      <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-3">
         O que já entregamos
       </p>
-      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
+      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-text mb-8 md:mb-12">
         Projetos que{' '}
-        <span className="text-faint">fazem a diferença.</span>
+        <span className="text-text-faint">fazem a diferença.</span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -27,7 +27,7 @@ export default function Cases() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Ver projeto ${c.name}`}
-            className="block bg-card border border-white/[0.06] rounded-xl overflow-hidden hover:border-accent/[0.3] transition-colors"
+            className="block bg-surface border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors"
           >
             {/* Logo area */}
             <div className={`h-[140px] flex items-center justify-center ${themeClasses[c.theme]}`}>
@@ -37,20 +37,20 @@ export default function Cases() {
 
             {/* Body */}
             <div className="p-5">
-              <p className="text-[10px] text-accent font-semibold uppercase tracking-[1px] mb-2">
+              <p className="text-micro text-accent-text font-semibold uppercase tracking-[1px] mb-2">
                 {c.tag}
               </p>
-              <h3 className="text-[15px] font-bold text-[#e0e0e0] tracking-tight">
+              <h3 className="text-body font-bold text-text tracking-tight">
                 {c.name}
               </h3>
-              <p className="text-[12px] text-body mt-1.5 leading-[1.5]">
+              <p className="text-caption text-text-muted mt-1.5 leading-[1.5]">
                 {c.description}
               </p>
               <div className="flex gap-1.5 flex-wrap mt-3.5">
                 {c.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-[10px] text-body border border-[#1e1e1e] px-2 py-0.5 rounded"
+                    className="text-micro text-text-muted border border-border px-2 py-0.5 rounded-sm"
                   >
                     {tech}
                   </span>

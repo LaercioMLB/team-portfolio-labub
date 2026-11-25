@@ -5,19 +5,19 @@ import { team } from "@/data/team";
 export default function Team() {
   return (
     <section id="time" className="px-4 md:px-12 py-16 md:py-[120px]">
-      <p className="text-[11px] text-accent uppercase tracking-[2px] font-semibold mb-3">
+      <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-3">
         Quem faz acontecer
       </p>
-      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
+      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-text mb-8 md:mb-12">
         O time da Labub.{" "}
-        <span className="text-faint">Especialistas de verdade.</span>
+        <span className="text-text-faint">Especialistas de verdade.</span>
       </h2>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(400px,100%),1fr))] gap-4">
         {team.map((member) => (
           <div
             key={member.area}
-            className="group relative bg-card p-5 md:p-7 overflow-hidden border border-white/[0.06] rounded-2xl"
+            className="group relative bg-surface p-5 md:p-7 overflow-hidden border border-border rounded-xl"
           >
             {/* Accent line on hover */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(99,102,241,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -33,14 +33,14 @@ export default function Team() {
               />
             </div>
 
-            <p className="text-[10px] text-accent font-semibold uppercase tracking-[1.5px] mb-1.5">
+            <p className="text-micro text-accent-text font-semibold uppercase tracking-[1.5px] mb-1.5">
               {member.area.toUpperCase()}
             </p>
-            <p className="text-[16px] font-bold text-[#e0e0e0] tracking-tight">
+            <p className="text-body-lg font-bold text-text tracking-tight">
               {member.lead}
             </p>
 
-            <p className="text-[12.5px] leading-relaxed text-[#888] mt-2">
+            <p className="text-[12.5px] leading-relaxed text-text-muted mt-2">
               {member.tagline}
             </p>
 
@@ -48,7 +48,7 @@ export default function Team() {
               {member.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] font-semibold text-[#b7b8ff] bg-accent/10 border border-accent/[0.22] px-2 py-1 rounded-md"
+                  className="text-micro font-semibold text-accent-soft bg-accent-bg border border-accent-border px-2 py-1 rounded-sm"
                 >
                   {tag}
                 </span>
@@ -61,7 +61,7 @@ export default function Team() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`LinkedIn de ${member.lead}`}
-                className="w-7 h-7 flex items-center justify-center rounded-full border border-white/[0.1] text-[#666] hover:text-accent hover:border-accent transition-colors"
+                className="w-7 h-7 flex items-center justify-center rounded-full border border-border-strong text-text-muted hover:text-accent-text hover:border-accent transition-colors"
               >
                 <svg
                   width="14"
@@ -78,7 +78,7 @@ export default function Team() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Portfólio de ${member.lead}`}
-                className="w-7 h-7 flex items-center justify-center rounded-full border border-white/[0.1] text-[#666] hover:text-accent hover:border-accent transition-colors"
+                className="w-7 h-7 flex items-center justify-center rounded-full border border-border-strong text-text-muted hover:text-accent-text hover:border-accent transition-colors"
               >
                 <svg
                   width="14"

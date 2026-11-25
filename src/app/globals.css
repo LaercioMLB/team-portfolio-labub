@@ -1,26 +1,89 @@
 @import "tailwindcss";
+@import "../../design-system/tokens.css";
+
+/* Os valores moram em design-system/tokens.css (fonte única, espelhada no pen.dev; ver design-sync.json).
+   Este bloco só registra os nomes no Tailwind para gerar as classes (bg-surface, text-text-muted,
+   text-body, rounded-lg…). "inline reference": a classe aponta para var(--nome) e o Tailwind
+   não redefine a variável, então o valor vem sempre do tokens.css, nos temas escuro e claro. */
+@theme inline reference {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-fill-1: var(--color-fill-1);
+  --color-fill-2: var(--color-fill-2);
+  --color-nav: var(--color-nav);
+  --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-faint: var(--color-text-faint);
+  --color-text-placeholder: var(--color-text-placeholder);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-on-primary: var(--color-on-primary);
+  --color-on-accent: var(--color-on-accent);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-border-hover: var(--color-border-hover);
+  --color-divider: var(--color-divider);
+  --color-accent: var(--color-accent);
+  --color-accent-text: var(--color-accent-text);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-accent-bg: var(--color-accent-bg);
+  --color-accent-border: var(--color-accent-border);
+  --color-accent-glow: var(--color-accent-glow);
+  --color-accent-grid: var(--color-accent-grid);
+  --color-accent-end: var(--color-accent-end);
+  --color-tint-hover: var(--color-tint-hover);
+  --color-tint-selected: var(--color-tint-selected);
+  --color-tint-pressed: var(--color-tint-pressed);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-pressed: var(--color-primary-pressed);
+  --color-focus: var(--color-focus);
+  --color-overlay: var(--color-overlay);
+  --color-success: var(--color-success);
+  --color-success-bg: var(--color-success-bg);
+  --color-warn: var(--color-warn);
+  --color-warn-bg: var(--color-warn-bg);
+  --color-danger: var(--color-danger);
+  --color-danger-bg: var(--color-danger-bg);
+  --color-ext-whatsapp: var(--color-ext-whatsapp);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --text-display: var(--text-display);
+  --leading-display: var(--leading-display);
+  --text-heading-xl: var(--text-heading-xl);
+  --leading-heading-xl: var(--leading-heading-xl);
+  --text-heading: var(--text-heading);
+  --leading-heading: var(--leading-heading);
+  --text-title-lg: var(--text-title-lg);
+  --leading-title-lg: var(--leading-title-lg);
+  --text-title: var(--text-title);
+  --leading-title: var(--leading-title);
+  --text-body-lg: var(--text-body-lg);
+  --leading-body-lg: var(--leading-body-lg);
+  --text-body: var(--text-body);
+  --leading-body: var(--leading-body);
+  --text-body-sm: var(--text-body-sm);
+  --leading-body-sm: var(--leading-body-sm);
+  --text-caption: var(--text-caption);
+  --leading-caption: var(--leading-caption);
+  --text-eyebrow: var(--text-eyebrow);
+  --text-micro: var(--text-micro);
+  --tracking-display: var(--tracking-display);
+  --tracking-heading: var(--tracking-heading);
+  --tracking-title: var(--tracking-title);
+  --tracking-caps: var(--tracking-caps);
+  --tracking-caps-sm: var(--tracking-caps-sm);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+}
 
 @theme {
-  /* === Custom Design Tokens (Tailwind v4) ===
-     In Tailwind v4, all customization lives here — not in tailwind.config.ts.
-     Add brand colors, fonts, animations, and keyframes in this block. */
-
-  --font-sans: "Inter", system-ui, sans-serif;
-
-  --color-bg: #080808;
-  --color-card: #0d0d0d;
-  --color-accent: #6366f1;
-  --color-muted: #555555;
-  --color-subtle: #333333;
-  --color-dimmed: #444444;
-
-  /* Text on bg/card. body = small text (≥5.5:1), faint = the grey half of large headings (≥3.6:1) */
-  --color-body: #888888;
-  --color-faint: #6b6b6b;
-
-  --animate-marquee: marquee 40s linear infinite;
-  --animate-load-bar: load-bar 0.5s ease forwards;
-  --animate-fade-in-up: fade-in-up 0.35s ease;
+  --animate-marquee: marquee var(--duration-marquee) linear infinite;
+  --animate-load-bar: load-bar var(--duration-slow) ease forwards;
+  --animate-fade-in-up: fade-in-up var(--duration-medium) ease;
 }
 
 /* @keyframes MUST be outside @theme for Tailwind v4 */
@@ -48,7 +111,7 @@
 
 /* Gradient text helper */
 .text-gradient {
-  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-end));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -67,11 +130,11 @@
 }
 .marquee-fade::before {
   left: 0;
-  background: linear-gradient(to right, #080808 0%, transparent 100%);
+  background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
 }
 .marquee-fade::after {
   right: 0;
-  background: linear-gradient(to left, #080808 0%, transparent 100%);
+  background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-fade::before,
@@ -83,6 +146,6 @@ html {
 }
 
 body {
-  background-color: #080808;
-  color: #f0f0f0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }

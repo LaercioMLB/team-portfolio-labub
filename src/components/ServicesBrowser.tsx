@@ -1,40 +1,51 @@
 // src/components/ServicesBrowser.tsx
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { serviceAreas } from "@/data/services";
+import AreaIcon from "@/components/AreaIcon";
 
 export default function ServicesBrowser() {
   const [activeKey, setActiveKey] = useState(serviceAreas[0].key);
   const active =
     serviceAreas.find((area) => area.key === activeKey) ?? serviceAreas[0];
 
+  // As paradas do hero ("Do zero ao deploy") abrem a aba da área clicada.
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const key = (e as CustomEvent<string>).detail;
+      if (serviceAreas.some((area) => area.key === key)) setActiveKey(key);
+    };
+    window.addEventListener("labub:service-area", onSelect);
+    return () => window.removeEventListener("labub:service-area", onSelect);
+  }, []);
+
   return (
     <section id="servicos" className="px-4 md:px-12 py-16 md:py-[120px]">
-      <p className="text-[11px] text-accent uppercase tracking-[2px] font-semibold mb-3">
+      <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-3">
         O que fazemos
       </p>
-      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-[#f0f0f0] mb-8 md:mb-12">
-        Serviços <span className="text-faint">prestados.</span>
+      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-text mb-8 md:mb-12">
+        Serviços <span className="text-text-faint">prestados.</span>
       </h2>
 
-      <div className="bg-card border border-white/[0.07] rounded-2xl overflow-hidden">
+      <div className="bg-surface border border-border rounded-xl overflow-hidden">
         {/* Browser chrome */}
-        <div className="bg-white/[0.03] border-b border-white/[0.05]">
+        <div className="bg-fill-1 border-b border-divider">
           <div className="flex items-center gap-3.5 px-4 py-2.5">
             <div className="flex items-center gap-[5px] flex-shrink-0">
-              <span className="w-[10px] h-[10px] rounded-full bg-[#ff5f57]" />
-              <span className="w-[10px] h-[10px] rounded-full bg-[#febc2e]" />
-              <span className="w-[10px] h-[10px] rounded-full bg-[#28c840]" />
+              <span className="w-[10px] h-[10px] rounded-full bg-border-strong" />
+              <span className="w-[10px] h-[10px] rounded-full bg-border-strong" />
+              <span className="w-[10px] h-[10px] rounded-full bg-border-strong" />
             </div>
-            <div className="flex-1 flex items-center gap-1.5 bg-white/[0.04] border border-white/[0.06] rounded-md px-3 py-1.5 font-mono text-[11px] overflow-hidden">
-              <span className="text-[10px]" aria-hidden="true">
+            <div className="flex-1 flex items-center gap-1.5 bg-fill-2 border border-border rounded-md px-3 py-1.5 font-mono text-eyebrow overflow-hidden">
+              <span className="text-micro" aria-hidden="true">
                 🔒
               </span>
-              <span className="text-body whitespace-nowrap">
+              <span className="text-text-muted whitespace-nowrap">
                 labub.dev/servicos/
               </span>
-              <span className="text-[#ccc] whitespace-nowrap">
+              <span className="text-text-soft whitespace-nowrap">
                 {active.slug}
               </span>
             </div>
@@ -48,13 +59,13 @@ export default function ServicesBrowser() {
                 type="button"
                 onClick={() => setActiveKey(area.key)}
                 aria-pressed={area.key === activeKey}
-                className={`flex items-center gap-1.5 px-3.5 py-2.5 text-[12px] font-semibold border-b-2 whitespace-nowrap transition-colors ${
+                className={`flex items-center gap-1.5 h-11 px-3.5 text-caption font-semibold border-b-2 rounded-t-md whitespace-nowrap transition-colors duration-[250ms] hover:duration-150 active:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${
                   area.key === activeKey
-                    ? "text-[#f0f0f0] border-accent"
-                    : "text-body border-transparent hover:text-[#ccc]"
+                    ? "text-text border-accent"
+                    : "text-text-muted border-transparent hover:bg-tint-hover hover:text-text-soft active:bg-tint-pressed"
                 }`}
               >
-                <span aria-hidden="true">{area.icon}</span>
+                <AreaIcon name={area.icon} />
                 {area.label}
               </button>
             ))}
@@ -64,7 +75,7 @@ export default function ServicesBrowser() {
         {/* Loading bar (remounts on tab change to replay the animation) */}
         <div
           key={`loadbar-${activeKey}`}
-          className="h-[2px] bg-accent shadow-[0_0_8px_rgba(99,102,241,0.7)] animate-load-bar motion-reduce:animate-none"
+          className="h-[2px] bg-accent shadow-[var(--glow-accent)] animate-load-bar motion-reduce:animate-none"
         />
 
         {/* Page content */}
@@ -72,14 +83,14 @@ export default function ServicesBrowser() {
           key={`page-${activeKey}`}
           className="px-6 md:px-10 py-8 md:py-11 animate-fade-in-up motion-reduce:animate-none"
         >
-          <p className="flex items-center gap-2 text-[11px] text-accent uppercase tracking-[1.8px] font-bold mb-2.5">
-            <span aria-hidden="true">{active.icon}</span>
+          <p className="flex items-center gap-2 text-eyebrow text-accent-text uppercase tracking-[1.8px] font-bold mb-2.5">
+            <AreaIcon name={active.icon} />
             Serviços / {active.label}
           </p>
-          <h3 className="text-[24px] md:text-[30px] font-extrabold tracking-[-1px] text-[#f0f0f0] mb-3">
+          <h3 className="text-[24px] md:text-[30px] font-extrabold tracking-[-1px] text-text mb-3">
             {active.label}
           </h3>
-          <p className="text-[14px] leading-[1.75] text-[#888] max-w-[60ch] mb-8">
+          <p className="text-[14px] leading-[1.75] text-text-muted max-w-[60ch] mb-8">
             {active.summary}
           </p>
 
@@ -87,14 +98,14 @@ export default function ServicesBrowser() {
             {active.items.map((item) => (
               <div
                 key={item.title}
-                className="grid grid-cols-[24px_1fr] gap-4 py-4 border-t border-white/[0.06] last:border-b last:border-white/[0.06]"
+                className="grid grid-cols-[24px_1fr] gap-4 py-4 border-t border-border last:border-b last:border-border"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-accent/70 mt-[7px]" />
                 <div>
-                  <h4 className="text-[14.5px] font-bold text-[#e0e0e0] tracking-tight mb-1.5">
+                  <h4 className="text-[14.5px] font-bold text-text tracking-tight mb-1.5">
                     {item.title}
                   </h4>
-                  <p className="text-[13px] leading-[1.7] text-[#888] max-w-[62ch]">
+                  <p className="text-body-sm leading-[1.7] text-text-muted max-w-[62ch]">
                     {item.desc}
                   </p>
                 </div>
