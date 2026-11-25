@@ -1,0 +1,114 @@
+/* Labub · componentes
+   Só usa tokens de tokens.css. As classes .is-* forçam um estado para a matriz do guia;
+   no código real os estados vêm de :hover, :active, :focus-visible, [disabled] e [aria-busy]. */
+
+/* ── Botão ─────────────────────────────────────────────── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 44px;                         /* alvo de toque ≥ 44px (DESIGN.md › Constraints) */
+  padding: 0 var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease),
+              border-color var(--duration-fast) var(--ease),
+              color var(--duration-fast) var(--ease);
+}
+.btn:hover, .btn.is-hover { transition-duration: var(--duration-quick); }
+.btn:active, .btn.is-pressed { transition: none; }   /* pressionar é instantâneo */
+.btn svg { width: 16px; height: 16px; flex-shrink: 0; stroke-width: 2; }
+
+.btn--lg { height: 52px; padding: 0 var(--space-6); font-size: 15px; }
+
+/* Principal: um por tela */
+.btn--primary { background: var(--color-primary); color: var(--color-on-primary); }
+.btn--primary:hover, .btn--primary.is-hover { background: var(--color-primary-hover); }
+.btn--primary:active, .btn--primary.is-pressed { background: var(--color-primary-pressed); }
+
+/* Secundário: peça com borda, hover só na borda */
+.btn--secondary { background: transparent; color: var(--color-text); border-color: var(--color-border-strong); font-weight: 600; }
+.btn--secondary:hover, .btn--secondary.is-hover { border-color: var(--color-border-hover); }
+.btn--secondary:active, .btn--secondary.is-pressed { border-color: var(--color-accent); }
+
+/* Foco só pelo teclado */
+.btn:focus { outline: none; }
+.btn:focus-visible, .btn.is-focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* Desativado */
+.btn:disabled, .btn[aria-disabled="true"], .btn.is-disabled { cursor: not-allowed; }
+.btn--primary:disabled, .btn--primary[aria-disabled="true"], .btn--primary.is-disabled {
+  background: var(--color-fill-2); color: var(--color-text-disabled); border-color: var(--color-border);
+}
+.btn--secondary:disabled, .btn--secondary[aria-disabled="true"], .btn--secondary.is-disabled {
+  border-color: var(--color-border); color: var(--color-text-disabled);
+}
+
+/* Carregando: mesmo tamanho, rótulo invisível, spinner por cima */
+.btn[aria-busy="true"], .btn.is-loading { cursor: progress; }
+.btn[aria-busy="true"] > *, .btn.is-loading > * { visibility: hidden; }
+.btn[aria-busy="true"]::after, .btn.is-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: btn-spin 0.7s linear infinite;
+}
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .btn[aria-busy="true"]::after, .btn.is-loading::after { animation-duration: 2.1s; }
+}
+
+/* ── Aba (Tab) · só nas abas da home ───────────────────── */
+/* Peça sem borda: hover é um tom; selecionada ganha texto forte e sublinhado.
+   O sublinhado de 2px existe sempre (transparente), então nada muda de tamanho. */
+.tab {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 44px; padding: 0 14px;
+  border: 0; border-bottom: 2px solid transparent;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: transparent; color: var(--color-text-muted);
+  font-family: var(--font-sans); font-size: var(--text-caption); font-weight: 600; white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease);
+}
+.tab svg { width: 16px; height: 16px; flex-shrink: 0; }
+.tab:hover, .tab.is-hover { background: var(--color-tint-hover); color: var(--color-text-soft); transition-duration: var(--duration-quick); }
+.tab:active, .tab.is-pressed { background: var(--color-tint-pressed); color: var(--color-text-soft); transition: none; }
+.tab:focus { outline: none; }
+.tab:focus-visible, .tab.is-focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.tab:disabled, .tab.is-disabled { color: var(--color-text-disabled); background: transparent; cursor: not-allowed; }
+.tab[aria-pressed="true"], .tab[aria-selected="true"], .tab.is-selected { color: var(--color-text); border-bottom-color: var(--color-accent); }
+
+/* ── Item de índice (Index item) · /servicos ───────────── */
+/* Link âncora. A barra de 2px à esquerda existe sempre; na seção atual (aria-current) ganha cor. */
+.index-item {
+  display: flex; align-items: center; gap: 12px;
+  height: 44px; padding: 0 12px;
+  border-left: 2px solid transparent;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--color-text-muted); text-decoration: none;
+  font-family: var(--font-sans); font-size: var(--text-body-sm); font-weight: 600;
+  transition: background-color var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease);
+}
+.index-item__number { font-size: var(--text-caption); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.index-item:hover, .index-item.is-hover { background: var(--color-tint-hover); color: var(--color-text-soft); transition-duration: var(--duration-quick); }
+.index-item:active, .index-item.is-pressed { background: var(--color-tint-pressed); color: var(--color-text-soft); transition: none; }
+.index-item:focus { outline: none; }
+.index-item:focus-visible, .index-item.is-focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.index-item[aria-current="true"], .index-item.is-selected { color: var(--color-text); border-left-color: var(--color-accent); }
+.index-item[aria-current="true"] .index-item__number, .index-item.is-selected .index-item__number { color: var(--color-accent-text); }
