@@ -1,0 +1,53 @@
+/* Moldura das páginas de componente do guia (não é parte do site). */
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+.page { max-width: 1200px; margin: 0 auto; padding: var(--space-12) var(--space-4) var(--space-16); }
+@media (min-width: 768px) { .page { padding: var(--space-16) var(--layout-gutter); } }
+
+.crumbs { display: flex; gap: var(--space-2); align-items: center; font-size: var(--text-caption); color: var(--color-text-muted); margin-bottom: var(--space-12); }
+.crumbs a { color: var(--color-accent-text); text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+
+.eyebrow { font-size: var(--text-eyebrow); font-weight: 600; letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-accent-text); margin-bottom: var(--space-3); }
+h1 { font-size: 32px; font-weight: 900; letter-spacing: var(--tracking-display); line-height: 1.05; text-wrap: balance; }
+@media (min-width: 768px) { h1 { font-size: var(--text-heading-xl); } }
+h1 .faint { color: var(--color-text-faint); }
+
+section.block { display: grid; gap: var(--space-8); padding: var(--space-12) 0; border-top: 1px solid var(--color-divider); margin-top: var(--space-12); }
+@media (min-width: 900px) { section.block { grid-template-columns: 260px 1fr; gap: var(--space-12); } }
+section.block.wide { grid-template-columns: 1fr; }
+section.block > * { min-width: 0; }   /* tabelas largas rolam dentro do .table-wrap, não a página */
+.legend h2 { font-size: var(--text-title-lg); font-weight: 800; letter-spacing: var(--tracking-heading); line-height: var(--leading-title-lg); margin-bottom: var(--space-3); }
+.legend p, .legend li { font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-muted); text-wrap: pretty; }
+.legend p + p, .legend ul { margin-top: var(--space-3); }
+.legend ul { padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.legend strong { color: var(--color-text-soft); font-weight: 600; }
+code { font-family: var(--font-mono); font-size: var(--text-caption); color: var(--color-text-soft); }
+
+.group-title { font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; color: var(--color-text-muted); margin: var(--space-8) 0 var(--space-3); }
+.group-title:first-child { margin-top: 0; }
+
+.stage { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-8) var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.stage.light { background: var(--color-bg); }
+.stage .note { flex-basis: 100%; font-size: var(--text-caption); color: var(--color-text-muted); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: var(--text-body-sm); }
+th, td { text-align: left; padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-divider); vertical-align: middle; line-height: var(--leading-body-sm); }
+th { font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; color: var(--color-text-muted); white-space: nowrap; }
+td { color: var(--color-text-muted); }
+td strong { color: var(--color-text); font-weight: 600; }
+.na { font-size: var(--text-caption); color: var(--color-text-muted); }
+
+.matrix-panel { border-radius: var(--radius-xl); padding: var(--space-6); background: var(--color-bg); border: 1px solid var(--color-border); }
+.matrix-panel + .matrix-panel { margin-top: var(--space-4); }
+.matrix-panel .group-title { margin-top: 0; }
+
+.do-dont { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+@media (min-width: 768px) { .do-dont { grid-template-columns: 1fr 1fr; } }
+.do-dont > div { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); display: grid; gap: var(--space-4); align-content: start; }
+.do-dont .verdict { font-size: var(--text-micro); font-weight: 600; letter-spacing: var(--tracking-caps-sm); text-transform: uppercase; }
+.do-dont .yes .verdict { color: var(--color-success); }
+.do-dont .no .verdict { color: var(--color-danger); }
+.do-dont p { font-size: var(--text-body-sm); line-height: var(--leading-body-sm); color: var(--color-text-muted); }
+.do-dont .row { display: flex; gap: var(--space-3); flex-wrap: wrap; }

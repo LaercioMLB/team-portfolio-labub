@@ -1,3 +1,5 @@
+import type { AreaIconName } from "@/components/AreaIcon";
+
 export type ServiceItem = {
   title: string;
   desc: string;
@@ -7,7 +9,7 @@ export type ServiceArea = {
   key: string;
   slug: string;
   label: string;
-  icon: string;
+  icon: AreaIconName;
   summary: string;
   items: ServiceItem[];
 };
@@ -17,7 +19,7 @@ export const serviceAreas: ServiceArea[] = [
     key: "frontend",
     slug: "frontend",
     label: "Frontend",
-    icon: "🖥️",
+    icon: "monitor",
     summary:
       "Interfaces que carregam rápido e funcionam bem em qualquer dispositivo, do primeiro clique ao deploy.",
     items: [
@@ -51,7 +53,7 @@ export const serviceAreas: ServiceArea[] = [
     key: "fullstack",
     slug: "fullstack",
     label: "FullStack",
-    icon: "⚙️",
+    icon: "layers",
     summary:
       "Do banco de dados à API, sistemas construídos pra crescer sem quebrar.",
     items: [
@@ -85,7 +87,7 @@ export const serviceAreas: ServiceArea[] = [
     key: "ux",
     slug: "ux-design",
     label: "UX Design",
-    icon: "🎨",
+    icon: "pen-tool",
     summary: "Decisões de design validadas com gente de verdade, não com achismo.",
     items: [
       {
@@ -118,7 +120,7 @@ export const serviceAreas: ServiceArea[] = [
     key: "devops",
     slug: "devops",
     label: "DevOps",
-    icon: "🚀",
+    icon: "cloud",
     summary: "Da infraestrutura ao compliance, ambientes estáveis e prontos pra escalar.",
     items: [
       {

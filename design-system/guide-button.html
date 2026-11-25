@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labub · Botão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<!-- Ícones Lucide (linha 2px), um set só -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+</svg>
+
+<div class="page">
+  <nav class="crumbs" aria-label="Caminho"><a href="index.html">Design system</a><span aria-hidden="true">/</span><span>Botão</span></nav>
+
+  <p class="eyebrow">Componente</p>
+  <h1>Botão. <span class="faint">Uma ação principal por tela.</span></h1>
+
+  <!-- 1. LEGENDA + EXEMPLOS -->
+  <section class="block">
+    <div class="legend">
+      <h2>Quando usar</h2>
+      <p><strong>Principal</strong> (branco no escuro, grafite no claro) é o próximo passo que a pessoa deve dar. <strong>Um por tela</strong>: se aparecem dois, a tela não decidiu.</p>
+      <p><strong>Secundário</strong> (só borda) é para o resto: a mesma ação repetida na nav, "Ver no GitHub", "Baixar PDF".</p>
+      <ul>
+        <li><strong>O rótulo diz o que acontece:</strong> verbo + objeto. Nunca "Clique aqui" ou "Enviar".</li>
+        <li><strong>Ícone à direita, só seta:</strong> → leva a um lugar da página; ↗ sai do site. Lucide, 16px, linha 2px.</li>
+        <li><strong>Altura mínima 44px</strong> (alvo de toque). <code>lg</code> (52px) só no hero e no slide final de CTA.</li>
+        <li>Link de navegação e link dentro do texto <strong>não são botão</strong>.</li>
+      </ul>
+    </div>
+    <div>
+      <p class="group-title">Exemplos no escuro</p>
+      <div class="stage">
+        <a class="btn btn--primary btn--lg" href="#contato">Fale com a gente <svg><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn--secondary" href="#contato">Fale conosco <svg><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn--secondary" href="https://github.com/" rel="noopener">Ver no GitHub <svg><use href="#i-arrow-up-right"/></svg></a>
+        <p class="note">Hero (principal, lg) · nav (secundário) · card de open source (secundário, sai do site).</p>
+      </div>
+
+      <p class="group-title">Exemplos no claro (proposta em PDF)</p>
+      <div class="stage light" data-theme="light">
+        <a class="btn btn--primary" href="#aprovar">Aprovar proposta <svg><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn--secondary" href="#pdf">Baixar PDF <svg><use href="#i-download"/></svg></a>
+        <p class="note">No claro, a ação principal é grafite.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FAZ / NÃO FAZ -->
+  <section class="block">
+    <div class="legend">
+      <h2>Faz e não faz</h2>
+      <p>As regras que mais quebram na prática.</p>
+    </div>
+    <div class="do-dont">
+      <div class="yes">
+        <span class="verdict">Faz</span>
+        <div class="row"><a class="btn btn--primary" href="#c">Fale com a gente <svg><use href="#i-arrow-right"/></svg></a><a class="btn btn--secondary" href="#g">Ver no GitHub <svg><use href="#i-arrow-up-right"/></svg></a></div>
+        <p>Um principal, o resto secundário. O rótulo diz para onde vai.</p>
+      </div>
+      <div class="no">
+        <span class="verdict">Não faz</span>
+        <div class="row"><a class="btn btn--primary" href="#c">Clique aqui</a><a class="btn btn--primary" href="#g">Saiba mais</a></div>
+        <p>Dois principais lado a lado, rótulos que não dizem nada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MATRIZ DE ESTADOS -->
+  <section class="block wide">
+    <div class="legend" style="max-width:640px">
+      <h2>Estados</h2>
+      <p>Seguem as regras de interação das fundações. <strong>Hover entra em 150ms e sai em 250ms; pressionar não tem transição.</strong> Foco só pelo teclado. Carregando mantém o tamanho exato: o rótulo fica invisível e o spinner fica por cima.</p>
+    </div>
+
+    <div class="matrix-panel">
+      <p class="group-title">Escuro</p>
+      <div class="table-wrap"><table>
+        <tr><th>Variante</th><th>Normal</th><th>Hover</th><th>Pressionado</th><th>Foco</th><th>Desativado</th><th>Carregando</th><th>Selecionado</th></tr>
+        <tr>
+          <td><strong>Principal</strong></td>
+          <td><span class="btn btn--primary">Começar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-hover">Começar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-pressed">Começar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-focus">Começar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-disabled">Começar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-loading"><span>Começar</span><svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="na">n/a: ação, não escolha</span></td>
+        </tr>
+        <tr>
+          <td><strong>Secundário</strong></td>
+          <td><span class="btn btn--secondary">GitHub <svg><use href="#i-arrow-up-right"/></svg></span></td>
+          <td><span class="btn btn--secondary is-hover">GitHub <svg><use href="#i-arrow-up-right"/></svg></span></td>
+          <td><span class="btn btn--secondary is-pressed">GitHub <svg><use href="#i-arrow-up-right"/></svg></span></td>
+          <td><span class="btn btn--secondary is-focus">GitHub <svg><use href="#i-arrow-up-right"/></svg></span></td>
+          <td><span class="btn btn--secondary is-disabled">GitHub <svg><use href="#i-arrow-up-right"/></svg></span></td>
+          <td><span class="btn btn--secondary is-loading"><span>GitHub</span><svg><use href="#i-arrow-up-right"/></svg></span></td>
+          <td><span class="na">n/a: ação, não escolha</span></td>
+        </tr>
+      </table></div>
+    </div>
+
+    <div class="matrix-panel" data-theme="light">
+      <p class="group-title">Claro</p>
+      <div class="table-wrap"><table>
+        <tr><th>Variante</th><th>Normal</th><th>Hover</th><th>Pressionado</th><th>Foco</th><th>Desativado</th><th>Carregando</th><th>Selecionado</th></tr>
+        <tr>
+          <td><strong>Principal</strong></td>
+          <td><span class="btn btn--primary">Aprovar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-hover">Aprovar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-pressed">Aprovar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-focus">Aprovar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-disabled">Aprovar <svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="btn btn--primary is-loading"><span>Aprovar</span><svg><use href="#i-arrow-right"/></svg></span></td>
+          <td><span class="na">n/a</span></td>
+        </tr>
+        <tr>
+          <td><strong>Secundário</strong></td>
+          <td><span class="btn btn--secondary">PDF <svg><use href="#i-download"/></svg></span></td>
+          <td><span class="btn btn--secondary is-hover">PDF <svg><use href="#i-download"/></svg></span></td>
+          <td><span class="btn btn--secondary is-pressed">PDF <svg><use href="#i-download"/></svg></span></td>
+          <td><span class="btn btn--secondary is-focus">PDF <svg><use href="#i-download"/></svg></span></td>
+          <td><span class="btn btn--secondary is-disabled">PDF <svg><use href="#i-download"/></svg></span></td>
+          <td><span class="btn btn--secondary is-loading"><span>PDF</span><svg><use href="#i-download"/></svg></span></td>
+          <td><span class="na">n/a</span></td>
+        </tr>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- 4. ESPECIFICAÇÃO -->
+  <section class="block">
+    <div class="legend">
+      <h2>Medidas e tokens</h2>
+      <p>Tudo vem de <code>tokens.css</code>. A classe está em <code>components.css</code>.</p>
+    </div>
+    <div class="table-wrap"><table>
+      <tr><th>Parte</th><th>md (padrão)</th><th>lg</th><th>Token</th></tr>
+      <tr><td><strong>Altura</strong></td><td>44px</td><td>52px</td><td>alvo de toque ≥ 44</td></tr>
+      <tr><td><strong>Padding lateral</strong></td><td>16px</td><td>24px</td><td><code>space-4</code> / <code>space-6</code></td></tr>
+      <tr><td><strong>Texto</strong></td><td>13px</td><td>15px</td><td>700 principal · 600 secundário</td></tr>
+      <tr><td><strong>Ícone</strong></td><td colspan="2">16px, linha 2px, à direita, gap 8px</td><td>Lucide · <code>space-2</code></td></tr>
+      <tr><td><strong>Raio</strong></td><td colspan="2">8px</td><td><code>radius-md</code></td></tr>
+      <tr><td><strong>Principal</strong></td><td colspan="2">fundo / hover / pressionado</td><td><code>primary</code> · <code>primary-hover</code> · <code>primary-pressed</code> · texto <code>on-primary</code></td></tr>
+      <tr><td><strong>Secundário</strong></td><td colspan="2">borda / hover / pressionado</td><td><code>border-strong</code> · <code>border-hover</code> · <code>accent</code> · texto <code>text</code></td></tr>
+      <tr><td><strong>Foco</strong></td><td colspan="2">anel 2px, afastado 2px</td><td><code>focus</code></td></tr>
+      <tr><td><strong>Desativado</strong></td><td colspan="2">fundo apagado, texto desativado</td><td><code>fill-2</code> · <code>border</code> · <code>text-disabled</code></td></tr>
+      <tr><td><strong>Movimento</strong></td><td colspan="2">hover 150ms entrada / 250ms saída; pressionar sem transição</td><td><code>duration-quick</code> · <code>duration-fast</code></td></tr>
+    </table></div>
+  </section>
+
+  <!-- 5. ONDE ESTÁ NO SITE -->
+  <section class="block">
+    <div class="legend">
+      <h2>Onde está no site</h2>
+      <p>Hoje cada lugar tem o seu botão escrito à mão. <strong>Nada foi mudado ainda</strong>: a troca pelo componente é um passo à parte.</p>
+    </div>
+    <div class="table-wrap"><table>
+      <tr><th>Lugar</th><th>Hoje</th><th>Vira</th></tr>
+      <tr><td><strong>Hero</strong> · <code>Hero.tsx:45</code></td><td>branco, 15px, 52px de altura</td><td>principal <code>lg</code></td></tr>
+      <tr><td><strong>Nav</strong> · <code>Nav.tsx:33</code></td><td>borda branca 15%, hover borda branca 40%, 36px de altura</td><td>secundário (hover índigo, 44px)</td></tr>
+      <tr><td><strong>Open source</strong> · <code>OpenSource.tsx:72</code>, <code>:142</code></td><td>12px, fundo branco 4%, hover com fundo índigo, 32px de altura</td><td>secundário (sem fundo, hover só na borda, 44px)</td></tr>
+    </table></div>
+  </section>
+</div>
+</body>
+</html>

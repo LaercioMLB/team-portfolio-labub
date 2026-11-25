@@ -1,0 +1,264 @@
+{
+  "source": "design-system/tokens.css",
+  "tool": "pen.dev: design-system/labub.pen, quadros 'Guide · Foundations · Colour', 'Guide · Foundations · Type & scales', 'Guide · Button', 'Guide · Component index'",
+  "naming": "Nomes das CSS custom properties exatamente como em tokens.css (ex.: --color-accent → variável '--color-accent', referenciada como $--color-accent). Valores do tema claro vêm de [data-theme=\"light\"] e entram na mesma variável com theme {mode: light}.",
+  "synced": "2026-11-25",
+  "notRegisteredInTool": [
+    "--tracking-display",
+    "--tracking-heading",
+    "--tracking-title",
+    "--tracking-caps",
+    "--tracking-caps-sm",
+    "--shadow",
+    "--shadow-strong",
+    "--glow-accent",
+    "--layout-measure",
+    "--duration-quick",
+    "--duration-fast",
+    "--duration-medium",
+    "--duration-slow",
+    "--duration-marquee",
+    "--ease"
+  ],
+  "substitutions": {
+    "--font-mono": "código: ui-monospace, \"SF Mono\", Menlo, monospace · pen.dev: JetBrains Mono"
+  },
+  "tokens": {
+    "--color-bg": {
+      "dark": "#080808",
+      "light": "#fafafa"
+    },
+    "--color-surface": {
+      "dark": "#0d0d0d",
+      "light": "#ffffff"
+    },
+    "--color-fill-1": {
+      "dark": "rgba(255, 255, 255, 0.03)",
+      "light": "rgba(13, 13, 13, 0.03)"
+    },
+    "--color-fill-2": {
+      "dark": "rgba(255, 255, 255, 0.05)",
+      "light": "rgba(13, 13, 13, 0.05)"
+    },
+    "--color-nav": {
+      "dark": "rgba(8, 8, 8, 0.85)",
+      "light": "rgba(250, 250, 250, 0.85)"
+    },
+    "--color-text": {
+      "dark": "#f0f0f0",
+      "light": "#0d0d0d"
+    },
+    "--color-text-soft": {
+      "dark": "#b4b4b4",
+      "light": "#3a3a3a"
+    },
+    "--color-text-muted": {
+      "dark": "#888888",
+      "light": "#5c5c5c"
+    },
+    "--color-text-faint": {
+      "dark": "#6b6b6b",
+      "light": "#8a8a8a"
+    },
+    "--color-text-placeholder": {
+      "dark": "#5a5a5a",
+      "light": "#a3a3a3"
+    },
+    "--color-text-disabled": {
+      "dark": "#4a4a4a",
+      "light": "#bdbdbd"
+    },
+    "--color-on-primary": {
+      "dark": "#080808",
+      "light": "#ffffff"
+    },
+    "--color-on-accent": {
+      "dark": "#ffffff",
+      "light": "#ffffff"
+    },
+    "--color-border": {
+      "dark": "rgba(255, 255, 255, 0.07)",
+      "light": "rgba(13, 13, 13, 0.10)"
+    },
+    "--color-border-strong": {
+      "dark": "rgba(255, 255, 255, 0.15)",
+      "light": "rgba(13, 13, 13, 0.18)"
+    },
+    "--color-border-hover": {
+      "dark": "rgba(99, 102, 241, 0.35)",
+      "light": "rgba(79, 70, 229, 0.45)"
+    },
+    "--color-divider": {
+      "dark": "rgba(255, 255, 255, 0.05)",
+      "light": "rgba(13, 13, 13, 0.07)"
+    },
+    "--color-accent": {
+      "dark": "#6366f1",
+      "light": "#6366f1"
+    },
+    "--color-accent-text": {
+      "dark": "#818cf8",
+      "light": "#4f46e5"
+    },
+    "--color-accent-soft": {
+      "dark": "#a5b4fc",
+      "light": "#4338ca"
+    },
+    "--color-accent-bg": {
+      "dark": "rgba(99, 102, 241, 0.10)",
+      "light": "rgba(99, 102, 241, 0.08)"
+    },
+    "--color-accent-border": {
+      "dark": "rgba(99, 102, 241, 0.25)",
+      "light": "rgba(99, 102, 241, 0.25)"
+    },
+    "--color-accent-glow": {
+      "dark": "rgba(99, 102, 241, 0.12)",
+      "light": "rgba(99, 102, 241, 0.10)"
+    },
+    "--color-accent-grid": {
+      "dark": "rgba(99, 102, 241, 0.04)",
+      "light": "rgba(99, 102, 241, 0.06)"
+    },
+    "--color-accent-end": "#3b82f6",
+    "--color-tint-hover": {
+      "dark": "rgba(255, 255, 255, 0.04)",
+      "light": "rgba(13, 13, 13, 0.04)"
+    },
+    "--color-tint-selected": {
+      "dark": "rgba(255, 255, 255, 0.08)",
+      "light": "rgba(13, 13, 13, 0.07)"
+    },
+    "--color-tint-pressed": {
+      "dark": "rgba(255, 255, 255, 0.10)",
+      "light": "rgba(13, 13, 13, 0.10)"
+    },
+    "--color-primary": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d"
+    },
+    "--color-primary-hover": {
+      "dark": "#e6e6e6",
+      "light": "#2a2a2a"
+    },
+    "--color-primary-pressed": {
+      "dark": "#d4d4d4",
+      "light": "#3a3a3a"
+    },
+    "--color-focus": {
+      "dark": "#818cf8",
+      "light": "#4f46e5"
+    },
+    "--color-overlay": {
+      "dark": "rgba(0, 0, 0, 0.72)",
+      "light": "rgba(13, 13, 13, 0.5)"
+    },
+    "--color-success": {
+      "dark": "#34d399",
+      "light": "#047857"
+    },
+    "--color-success-bg": {
+      "dark": "rgba(52, 211, 153, 0.10)",
+      "light": "rgba(4, 120, 87, 0.08)"
+    },
+    "--color-warn": {
+      "dark": "#fbbf24",
+      "light": "#b45309"
+    },
+    "--color-warn-bg": {
+      "dark": "rgba(251, 191, 36, 0.10)",
+      "light": "rgba(180, 83, 9, 0.08)"
+    },
+    "--color-danger": {
+      "dark": "#f87171",
+      "light": "#b91c1c"
+    },
+    "--color-danger-bg": {
+      "dark": "rgba(248, 113, 113, 0.10)",
+      "light": "rgba(185, 28, 28, 0.08)"
+    },
+    "--color-ext-whatsapp": {
+      "dark": "#25d366",
+      "light": "#15803d"
+    },
+    "--font-sans": "\"Inter\", system-ui, sans-serif",
+    "--font-mono": "ui-monospace, \"SF Mono\", Menlo, monospace",
+    "--text-display": "64px",
+    "--leading-display": "1",
+    "--text-heading-xl": "48px",
+    "--leading-heading-xl": "1.05",
+    "--text-heading": "36px",
+    "--leading-heading": "1.1",
+    "--text-title-lg": "30px",
+    "--leading-title-lg": "1.15",
+    "--text-title": "18px",
+    "--leading-title": "1.3",
+    "--text-body-lg": "16px",
+    "--leading-body-lg": "1.7",
+    "--text-body": "15px",
+    "--leading-body": "1.7",
+    "--text-body-sm": "13px",
+    "--leading-body-sm": "1.65",
+    "--text-caption": "12px",
+    "--leading-caption": "1.5",
+    "--text-eyebrow": "11px",
+    "--text-micro": "10px",
+    "--tracking-display": "-0.047em",
+    "--tracking-heading": "-0.04em",
+    "--tracking-title": "-0.025em",
+    "--tracking-caps": "0.18em",
+    "--tracking-caps-sm": "0.1em",
+    "--space-1": "4px",
+    "--space-1-5": "6px",
+    "--space-2": "8px",
+    "--space-2-5": "10px",
+    "--space-3": "12px",
+    "--space-4": "16px",
+    "--space-5": "20px",
+    "--space-6": "24px",
+    "--space-7": "28px",
+    "--space-8": "32px",
+    "--space-12": "48px",
+    "--space-16": "64px",
+    "--space-section": "120px",
+    "--radius-sm": "6px",
+    "--radius-md": "8px",
+    "--radius-lg": "12px",
+    "--radius-xl": "16px",
+    "--radius-full": "9999px",
+    "--shadow": {
+      "dark": "0 8px 24px rgba(0, 0, 0, 0.5)",
+      "light": "0 8px 24px rgba(13, 13, 13, 0.10)"
+    },
+    "--shadow-strong": {
+      "dark": "0 24px 64px rgba(0, 0, 0, 0.7)",
+      "light": "0 24px 64px rgba(13, 13, 13, 0.18)"
+    },
+    "--glow-accent": "0 0 8px rgba(99, 102, 241, 0.7)",
+    "--layout-max": "1440px",
+    "--layout-gutter": "48px",
+    "--layout-measure": "60ch",
+    "--layout-grid-cell": "48px",
+    "--bp-md": "768px",
+    "--duration-quick": "150ms",
+    "--duration-fast": "250ms",
+    "--duration-medium": "350ms",
+    "--duration-slow": "500ms",
+    "--duration-marquee": "40s",
+    "--ease": "cubic-bezier(0.2, 0, 0, 1)"
+  },
+  "components": {
+    "Button": "drawn",
+    "Tag": "not designed",
+    "Card": "not designed",
+    "Eyebrow + section title": "not designed",
+    "Badge": "not designed",
+    "Tab": "drawn",
+    "Index item": "drawn",
+    "Logo": "drawn (vetores do Logo.tsx)",
+    "HeroFlow (hero da home)": "drawn (labub.pen › 06/07) · src/components/HeroFlow.tsx"
+  },
+  "consumers": {
+    "site": "src/app/globals.css importa design-system/tokens.css e registra 72 nomes (cor, fonte, texto, leading, tracking, raio) com @theme inline reference; as classes do Tailwind apontam para var(--nome). Desde 2026-11-25."
+  }
+}

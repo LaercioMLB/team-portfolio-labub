@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labub · Design system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="guide.css">
+<style>
+  .intro { font-size: var(--text-body-lg); line-height: var(--leading-body-lg); color: var(--color-text-muted); max-width: var(--layout-measure); margin-top: var(--space-5); text-wrap: pretty; }
+  .intro strong { color: var(--color-text-soft); font-weight: 500; }
+  td a { color: var(--color-accent-text); text-decoration: none; font-weight: 600; }
+  td a:hover { text-decoration: underline; }
+  .status { display: inline-block; font-size: var(--text-micro); font-weight: 600; border-radius: var(--radius-sm); padding: 2px var(--space-2); border: 1px solid var(--color-border); white-space: nowrap; }
+  .status.done { color: var(--color-success); background: var(--color-success-bg); border-color: transparent; }
+  .status.design { color: var(--color-accent-soft); background: var(--color-accent-bg); border-color: var(--color-accent-border); }
+  .status.todo { color: var(--color-text-muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">Labub</p>
+  <h1>Design system. <span class="faint">Decidido uma vez.</span></h1>
+  <p class="intro">O brief está no <code>DESIGN.md</code>, os valores em <code>tokens.css</code> e as peças em <code>components.css</code>. <strong>Cada peça tem uma página com regra, exemplos e matriz de estados.</strong></p>
+
+  <section class="block wide">
+    <div class="legend"><h2>Índice de componentes</h2></div>
+    <div class="table-wrap"><table>
+      <tr><th>Peça</th><th>Onde estão os estados</th><th>No código</th><th>Status</th></tr>
+      <tr><td><a href="guide-foundations.html">Fundações</a></td><td>Fundações › Regras de interação</td><td><code>tokens.css</code>; o site lê via <code>globals.css</code></td><td><span class="status done">aprovado 25/11</span></td></tr>
+      <tr><td><a href="guide-button.html">Botão</a></td><td>Botão › Estados (escuro e claro)</td><td><code>components.css</code> <code>.btn</code>; site: escrito à mão em 3 lugares</td><td><span class="status design">desenhado, falta aprovar</span></td></tr>
+      <tr><td><strong>Tag</strong></td><td>—</td><td>—</td><td><span class="status todo">próximo</span></td></tr>
+      <tr><td><strong>Card</strong></td><td>—</td><td>—</td><td><span class="status todo">a fazer</span></td></tr>
+      <tr><td><strong>Eyebrow + título de seção</strong></td><td>—</td><td>—</td><td><span class="status todo">a fazer</span></td></tr>
+      <tr><td><strong>Aba (Tab)</strong></td><td>pen.dev › Guide · Tab</td><td><code>components.css</code> <code>.tab</code>; site: abas do <code>ServicesBrowser.tsx</code></td><td><span class="status done">aprovado 25/11</span></td></tr>
+      <tr><td><strong>Índice (Index item)</strong></td><td>pen.dev › Guide · Index</td><td><code>components.css</code> <code>.index-item</code>; site: /servicos (a construir)</td><td><span class="status done">aprovado 25/11</span></td></tr>
+      <tr><td><strong>Badge</strong></td><td>—</td><td>—</td><td><span class="status todo">a fazer</span></td></tr>
+    </table></div>
+  </section>
+</div>
+</body>
+</html>

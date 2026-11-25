@@ -10,7 +10,7 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-4 md:px-12 py-3 md:py-5 border-b border-white/[0.06] bg-[rgba(8,8,8,0.85)] backdrop-blur-md" aria-label="Navegação principal">
+    <nav className="sticky top-0 z-50 flex items-center justify-between px-4 md:px-12 py-3 md:py-5 border-b border-border bg-nav backdrop-blur-md" aria-label="Navegação principal">
       {/* Logo */}
       <a href="#" className="flex items-center shrink-0" aria-label="Labub — voltar ao início">
         <Logo className="h-7 md:h-9 w-auto" />
@@ -20,7 +20,7 @@ export default function Nav() {
       <ul className="hidden md:flex items-center gap-7">
         {links.map((link) => (
           <li key={link.href}>
-            <a href={link.href} className="text-[13px] text-[#888] hover:text-white transition-colors">
+            <a href={link.href} className="text-body-sm text-text-muted hover:text-text transition-colors">
               {link.label}
             </a>
           </li>
@@ -30,7 +30,7 @@ export default function Nav() {
       {/* CTA */}
       <a
         href="#contato"
-        className="text-[13px] font-semibold text-[#f0f0f0] border border-white/[0.15] px-3 md:px-[18px] py-2 md:py-2.5 rounded-lg hover:border-white/40 transition-colors"
+        className="text-body-sm font-semibold text-text border border-border-strong px-3 md:px-[18px] py-2 md:py-2.5 rounded-md hover:border-border-hover transition-colors"
       >
         Fale conosco →
       </a>

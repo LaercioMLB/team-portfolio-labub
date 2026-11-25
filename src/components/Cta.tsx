@@ -6,54 +6,51 @@ export default function Cta() {
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.08),transparent_60%)]" />
 
       <div className="relative z-10">
-        <p className="text-[11px] text-accent uppercase tracking-[2px] font-semibold mb-4">
+        <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-4">
           Pronto para começar?
         </p>
-        <h2 className="text-[28px] md:text-[48px] font-black tracking-[-1.5px] md:tracking-[-2.5px] leading-[1.0] text-[#f0f0f0] mb-3">
+        <h2 className="text-[28px] md:text-[48px] font-black tracking-[-1.5px] md:tracking-[-2.5px] leading-[1.0] text-text mb-3">
           A gente cuida do seu{' '}
-          <em
-            className="not-italic"
-            style={{ color: 'transparent', WebkitTextStroke: '1.5px rgba(240,240,240,0.2)' }}
-          >
+          <em className="not-italic text-outline">
             digital.
           </em>
           <br />
           Você foca no negócio.
         </h2>
-        <p className="text-[15px] text-body mb-8 md:mb-12">
+        <p className="text-body text-text-muted mb-8 md:mb-12">
           Sem compromisso. A gente responde em até 24h.
         </p>
 
         {/* Contatos */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
           <div className="px-6 md:px-14 text-center">
-            <p className="text-[10px] text-body uppercase tracking-[2px] font-semibold mb-2.5">
+            <p className="text-micro text-text-muted uppercase tracking-[2px] font-semibold mb-2.5">
               Email
             </p>
             <a
               href="mailto:lbubiak@hotmail.com"
-              className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-[#e0e0e0] hover:text-white transition-colors"
+              className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-text hover:text-text transition-colors"
             >
               lbubiak@hotmail.com
             </a>
-            <p className="text-[11px] text-body mt-2">Resposta em até 24h</p>
+            <p className="text-eyebrow text-text-muted mt-2">Resposta em até 24h</p>
           </div>
 
-          <div className="hidden md:block w-px h-16 bg-white/[0.08]" aria-hidden="true" />
+          <div className="hidden md:block w-px h-16 bg-border" aria-hidden="true" />
 
           <div className="px-6 md:px-14 text-center">
-            <p className="text-[10px] text-body uppercase tracking-[2px] font-semibold mb-2.5">
+            <p className="text-micro text-text-muted uppercase tracking-[2px] font-semibold mb-2.5">
               WhatsApp
             </p>
             <a
               href="https://api.whatsapp.com/send/?phone=554598592126&text=Ol%C3%A1+Laercio%2C+gostaria+de+falar+com+voc%C3%AA%21&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-[#25d366] hover:text-[#34d399] transition-colors"
+              className="text-[18px] md:text-[20px] font-extrabold tracking-tight text-ext-whatsapp hover:text-text transition-colors"
             >
               Chamar no WhatsApp
             </a>
-            <p className="text-[11px] text-body mt-2">Resposta imediata</p>
+            <p className="text-eyebrow text-text-muted mt-2">Resposta imediata</p>
           </div>
         </div>
       </div>

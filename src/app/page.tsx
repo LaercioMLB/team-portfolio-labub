@@ -9,12 +9,10 @@ import OpenSource     from '@/components/OpenSource'
 import Testimonials from '@/components/Testimonials'
 import Cta          from '@/components/Cta'
 import Footer       from '@/components/Footer'
-import SmokeCanvas  from '@/components/SmokeCanvas'
 
 export default function Home() {
   return (
     <>
-      <SmokeCanvas />
       <div className="relative mx-auto w-full max-w-[1440px]" style={{ zIndex: 1 }}>
         <Nav />
         <main>
