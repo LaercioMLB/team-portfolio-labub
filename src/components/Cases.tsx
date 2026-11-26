@@ -1,5 +1,6 @@
 // Cases · Desafio / Solução / Resultado (labub.pen › Case card). Sem moldura: linha de 1px
 // no topo, que vira índigo de 2px no hover. O case inteiro é o link para o site do cliente.
+import Image from 'next/image'
 import { cases } from '@/data/cases'
 import AreaIcon from './AreaIcon'
 import SectionHead from './SectionHead'
@@ -30,8 +31,9 @@ export default function Cases() {
                 className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-[var(--duration-fast)] ease-[var(--ease)] group-hover/case:scale-x-100 group-hover/case:duration-[var(--duration-medium)] motion-reduce:transition-none"
               />
               <span className="flex items-center gap-3.5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-border bg-fill-2 text-[14px] font-extrabold text-text-soft" aria-hidden="true">
-                  {c.initials}
+                {/* Ícone da marca num quadro branco fixo: as cores do cliente ficam iguais nos dois temas. */}
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-border bg-white p-2" aria-hidden="true">
+                  <Image src={c.icon} alt="" width={32} height={32} unoptimized className="h-8 w-8 object-contain" />
                 </span>
                 <span className="flex flex-col gap-1">
                   <span className="text-title font-bold tracking-[-0.4px] text-text">{c.client}</span>
