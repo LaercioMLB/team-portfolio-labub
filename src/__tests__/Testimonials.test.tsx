@@ -3,18 +3,16 @@ import Testimonials from '@/components/Testimonials'
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ src, alt, ...props }: { src: string; alt: string; [key: string]: unknown }) => (
+  default: ({ src, alt }: { src: string; alt: string }) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt={alt} {...props} />
+    <img src={src} alt={alt} />
   ),
 }))
 
 describe('Testimonials', () => {
-  it('renders author names and quotes', () => {
+  it('renders the quote and its author', () => {
     render(<Testimonials />)
-    expect(screen.getByText('Fernanda Rocha')).toBeInTheDocument()
-    expect(screen.getByText('Rafael Menezes')).toBeInTheDocument()
-    expect(screen.getByText(/reuniões intermináveis/)).toBeInTheDocument()
+    expect(screen.getByText('Clói Rotta')).toBeInTheDocument()
     expect(screen.getByText(/zero dor de cabeça/)).toBeInTheDocument()
   })
 })

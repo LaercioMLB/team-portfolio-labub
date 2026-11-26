@@ -17,7 +17,7 @@ export const team: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/laercio-bubiak/",
     portfolioUrl: "https://www.laercio.me/",
     tagline: "Deixo a conta da Cloud mais barata e automatizo deploys pra ninguém dormir com medo de subir errado.",
-    tags: ["Kubernetes", "Docker", "Terraform", "AWS", "CI/CD", "Serverless"," Cloud Security"," Cloud Architecture", "Cloud Cost Optimization"],
+    tags: ["Kubernetes", "Docker", "Terraform", "AWS", "CI/CD", "Serverless","Cloud Security","Cloud Architecture", "Cloud Cost Optimization"],
   },
   {
     area: "Frontend Engineer",
@@ -36,7 +36,7 @@ export const team: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/viniengelage/",
     portfolioUrl: "https://www.viniengelage.com/",
     tagline: "Resolvo bugs para não me estressar e me estresso corrigindo bugs.",
-    tags: ["Javascript", "Web", "Mobile", "React", "NextJS", "React Native"," Docker"," Expo"],
+    tags: ["JavaScript", "Web", "Mobile", "React", "Next.js", "React Native","Docker","Expo"],
   },
     {
     area: "Fullstack Engineer",
@@ -45,7 +45,7 @@ export const team: TeamMember[] = [
     linkedinUrl: "",
     portfolioUrl: "",
     tagline: "Transformando problemas em soluções modernas.",
-    tags: ["Automation AI", "Type Script", "Node", "React","Integration API"],
+    tags: ["Automation AI", "TypeScript", "Node", "React","Integration API"],
   },
       {
     area: "DevOps | Security Engineer",
@@ -62,8 +62,8 @@ export const team: TeamMember[] = [
     photo: "/team/willian-novo-1x1.png",
     linkedinUrl: "",
     portfolioUrl: "",
-    tagline: "Projetando arquiteturas tão resilientes que resistem até a usuário tentando derrubar o banco de dados na sexta-feira às 17:59.",
-    tags: ["Docker ", "Terraform ", "Ansible ", "Azure ", "Python ", "SQL ","NoSQL","Cloud Architeture","API Security"],
+    tagline: "Projetando arquiteturas tão resilientes que resistem até a usuário tentando derrubar o banco de dados na sexta-feira às 17h59.",
+    tags: ["Docker", "Terraform", "Ansible", "Azure", "Python", "SQL","NoSQL","Cloud Architecture","API Security"],
   },
   {
     area: "Backend Engineer",
@@ -72,6 +72,6 @@ export const team: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/gustavo-ariel-gamarra-rojas/",
     portfolioUrl: "",
     tagline: "Transformo sistemas legados em soluções que dão menos trabalho do que explicar por que ainda existem. Arquitetura, automação e deploys para que produção não vire um evento.",
-    tags: ["Oracle APEX ", "Oracle OCI ", "PL/SQL ", "PostgreSQL ", "Java  ", "Spring Boot ","PHP","Delphi ","Reverse Engineering","AWS","Kubernetes", "Machine Learning","CI/CD"],
+    tags: ["Oracle APEX", "Oracle OCI", "PL/SQL", "PostgreSQL", "Java", "Spring Boot","PHP","Delphi","Reverse Engineering","AWS","Kubernetes", "Machine Learning","CI/CD"],
   },
 ];

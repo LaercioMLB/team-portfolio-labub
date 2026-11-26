@@ -10,7 +10,7 @@ export const testimonials: Testimonial[] = [
 
   {
     name: 'Clói Rotta',
-    role: 'CEO | Founder, SOSCONSTRUIR',
+    role: 'CEO e founder, SOS Construir',
     photo: '/testimonials/cloi-sos.png',
     text: 'Ter frontend, backend e UX no mesmo time foi o diferencial. Comunicação sempre clara, produto de altíssima qualidade e zero dor de cabeça.',
   },

@@ -1,102 +1,83 @@
-// src/components/Team.tsx
-import Image from "next/image";
-import { team } from "@/data/team";
+// Time (labub.pen › Team card). Mantém a frase e as competências de cada pessoa; sem moldura,
+// linha de 1px no topo. Links rotulados só quando existem (nada de link vazio).
+// No desktop, o espaço que sobra na última linha vira a chamada "O time certo para o seu projeto".
+import { team } from '@/data/team'
+import AreaIcon from './AreaIcon'
+import Avatar from './Avatar'
+import SectionHead from './SectionHead'
+
+const linkClass =
+  'inline-flex h-11 items-center gap-1.5 rounded-full border border-border-strong px-3 text-caption font-semibold text-text-muted transition-colors duration-[var(--duration-quick)] hover:border-border-hover hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus'
 
 export default function Team() {
   return (
-    <section id="time" className="px-4 md:px-12 py-16 md:py-[120px]">
-      <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-3">
-        Quem faz acontecer
-      </p>
-      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-text mb-8 md:mb-12">
-        O time da Labub.{" "}
-        <span className="text-text-faint">Especialistas de verdade.</span>
-      </h2>
+    <section id="time" aria-labelledby="time-titulo" className="flex flex-col gap-8 border-t border-divider px-4 py-16 md:gap-12 md:px-12 md:py-28">
+      <SectionHead id="time-titulo" eyebrow="Quem faz acontecer" solid="O time da Labub." faint="Você fala com quem faz." />
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(400px,100%),1fr))] gap-4">
-        {team.map((member) => (
-          <div
-            key={member.area}
-            className="group relative bg-surface p-5 md:p-7 overflow-hidden border border-border rounded-xl"
+      <ul className="grid gap-10 md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3">
+        {team.map((m) => {
+          const hasLinks = Boolean(m.linkedinUrl || m.portfolioUrl)
+          return (
+            <li key={m.lead} className="flex flex-col gap-4 border-t border-border-strong pt-6">
+              <div className="flex items-center gap-3.5">
+                <Avatar src={m.photo} name={m.lead} />
+                <div className="flex min-w-0 flex-col gap-1">
+                  <p className="text-micro font-semibold uppercase tracking-[1.2px] text-accent-text">
+                    {m.area.replace(/\s*\|\s*/g, ' · ')}
+                  </p>
+                  <p className="text-body-lg font-bold tracking-[-0.3px] text-text">{m.lead}</p>
+                </div>
+              </div>
+
+              <p className="text-body-sm leading-body-sm text-text-soft">{m.tagline}</p>
+
+              <ul className="flex flex-wrap gap-1.5" aria-label={`Competências de ${m.lead}`}>
+                {m.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-sm border border-accent-border bg-accent-bg px-2 py-1 text-micro font-semibold text-accent-soft"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+
+              {hasLinks && (
+                <div className="mt-auto flex gap-2 pt-1">
+                  {m.linkedinUrl && (
+                    <a href={m.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${m.lead}`} className={linkClass}>
+                      <AreaIcon name="linkedin" className="h-3.5 w-3.5" />
+                      LinkedIn
+                    </a>
+                  )}
+                  {m.portfolioUrl && (
+                    <a href={m.portfolioUrl} target="_blank" rel="noopener noreferrer" aria-label={`Portfólio de ${m.lead}`} className={linkClass}>
+                      <AreaIcon name="globe" className="h-3.5 w-3.5" />
+                      Portfólio
+                    </a>
+                  )}
+                </div>
+              )}
+            </li>
+          )
+        })}
+
+        <li className="flex flex-col justify-start gap-4 border-t-2 border-accent pt-7 md:col-span-1 lg:col-span-2 lg:pl-16">
+          <p className="text-[24px] font-extrabold leading-title-lg tracking-[-1px] text-text md:text-title-lg">
+            O time certo para o seu projeto.
+          </p>
+          <p className="max-w-[460px] text-body leading-body text-text-muted">
+            Na proposta você vê quem do time entra no seu projeto e o que cada pessoa faz.
+          </p>
+          <a
+            href="#contato"
+            className="inline-flex h-11 w-fit items-center gap-2 rounded-md border border-border-strong px-4 text-body-sm font-semibold text-text transition-colors duration-[var(--duration-quick)] hover:border-border-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
-            {/* Accent line on hover */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(99,102,241,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-            {/* Photo */}
-            <div className="w-16 h-16 rounded-full overflow-hidden mb-4 flex-shrink-0">
-              <Image
-                src={member.photo}
-                alt={member.lead}
-                width={64}
-                height={64}
-                className="w-full h-full object-cover  contrast-[1.05] transition-[filter] duration-300 group-hover:grayscale-0"
-              />
-            </div>
-
-            <p className="text-micro text-accent-text font-semibold uppercase tracking-[1.5px] mb-1.5">
-              {member.area.toUpperCase()}
-            </p>
-            <p className="text-body-lg font-bold text-text tracking-tight">
-              {member.lead}
-            </p>
-
-            <p className="text-[12.5px] leading-relaxed text-text-muted mt-2">
-              {member.tagline}
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 mt-2.5">
-              {member.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-micro font-semibold text-accent-soft bg-accent-bg border border-accent-border px-2 py-1 rounded-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex gap-2 mt-3">
-              <a
-                href={member.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`LinkedIn de ${member.lead}`}
-                className="w-7 h-7 flex items-center justify-center rounded-full border border-border-strong text-text-muted hover:text-accent-text hover:border-accent transition-colors"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-                </svg>
-              </a>
-              <a
-                href={member.portfolioUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Portfólio de ${member.lead}`}
-                className="w-7 h-7 flex items-center justify-center rounded-full border border-border-strong text-text-muted hover:text-accent-text hover:border-accent transition-colors"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+            Montar meu time
+            <AreaIcon name="arrow-right" />
+          </a>
+        </li>
+      </ul>
     </section>
-  );
+  )
 }
