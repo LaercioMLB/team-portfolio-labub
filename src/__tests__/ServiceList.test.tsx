@@ -26,4 +26,11 @@ describe('ServiceList', () => {
     })
     expect(screen.getByRole('button', { name: /UX Design/ })).toHaveAttribute('aria-expanded', 'true')
   })
+
+  it('links to the full services page', () => {
+    render(<ServiceList />)
+    expect(screen.getByRole('link', { name: /Ver todos os serviços/ })).toHaveAttribute('href', '/servicos')
+    const details = screen.getAllByRole('link', { name: /Ver detalhes/, hidden: true })
+    expect(details.map((d) => d.getAttribute('href'))).toEqual(serviceAreas.map((a) => `/servicos#${a.slug}`))
+  })
 })

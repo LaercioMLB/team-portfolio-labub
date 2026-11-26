@@ -5,16 +5,17 @@
 // Celular: seletor de tema e botão de menu; o menu cobre a página abaixo da nav e fecha
 // no X, no Esc ou ao tocar num link.
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import Logo from './Logo'
 import ThemeToggle from './ThemeToggle'
 import AreaIcon from './AreaIcon'
 
 export const navLinks = [
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Como trabalhamos', href: '#metodo' },
-  { label: 'Cases', href: '#cases' },
-  { label: 'Time', href: '#time' },
-  { label: 'Perguntas', href: '#perguntas' },
+  { label: 'Serviços', href: '/servicos' },
+  { label: 'Como trabalhamos', href: '/#metodo' },
+  { label: 'Cases', href: '/#cases' },
+  { label: 'Time', href: '/#time' },
+  { label: 'Perguntas', href: '/#perguntas' },
 ]
 
 export default function Nav() {
@@ -37,19 +38,19 @@ export default function Nav() {
         className="sticky top-0 z-50 flex h-[60px] items-center justify-between border-b border-divider bg-nav px-4 backdrop-blur-md md:h-[76px] md:px-12"
         aria-label="Navegação principal"
       >
-        <a href="#" className="flex h-11 shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus" aria-label="Labub — voltar ao início">
+        <Link href="/" className="flex h-11 shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus" aria-label="Labub — voltar ao início">
           <Logo className="h-7 w-auto md:h-9" />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 className="rounded-sm text-body-sm font-medium text-text-muted transition-colors duration-[var(--duration-quick)] hover:text-text focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -86,14 +87,14 @@ export default function Nav() {
           <ul className="flex flex-col">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="flex h-[52px] items-center justify-between border-b border-divider text-[17px] font-semibold text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
                 >
                   {link.label}
                   <AreaIcon name="arrow-right" className="h-4 w-4 text-text-muted" />
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
