@@ -11,6 +11,8 @@ export type Case = {
   result: string
   stack: string[]
   logo: string
+  // Ícone quadrado da marca (favicon/símbolo oficial), mostrado no lugar das iniciais.
+  icon: string
   url: string
 }
 
@@ -25,6 +27,7 @@ export const cases: Case[] = [
     result: 'Sistema no ar na AWS, com deploy automatizado.',
     stack: ['AWS', 'Node.js', 'UX'],
     logo: '/cases/sosconstruir.svg',
+    icon: '/cases/icons/sosconstruir.svg',
     url: 'https://www.sosconstruir.com.br/',
   },
   {
@@ -37,6 +40,7 @@ export const cases: Case[] = [
     result: 'Plataforma no ar, com segurança revisada e deploy contínuo.',
     stack: ['Node.js', 'AWS', 'k8s'],
     logo: '/cases/fixe-crm.png',
+    icon: '/cases/icons/fixecrm.png',
     url: 'https://fixecrm.com/',
   },
   {
@@ -49,6 +53,7 @@ export const cases: Case[] = [
     result: 'App publicado, rodando em AWS e Azure com deploy contínuo.',
     stack: ['React Native', 'AWS', 'Azure'],
     logo: '/cases/organizadin.svg',
+    icon: '/cases/icons/organizadin.svg',
     url: 'https://organizadin.com/',
   },
 ]
