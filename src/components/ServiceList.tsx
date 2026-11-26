@@ -8,6 +8,7 @@
 // (evento "labub:service-area"). Com "reduzir movimento", abre e fecha sem animação.
 import { useCallback, useEffect, useState } from 'react'
 import { serviceAreas } from '@/data/services'
+import Link from 'next/link'
 import AreaIcon from './AreaIcon'
 import SectionHead from './SectionHead'
 
@@ -55,7 +56,16 @@ export default function ServiceList() {
       aria-labelledby="servicos-titulo"
       className="flex flex-col gap-8 border-t border-divider px-4 py-16 md:gap-14 md:px-12 md:py-28"
     >
-      <SectionHead id="servicos-titulo" eyebrow="Frentes de atuação" solid="Quatro frentes." faint="Um time só." />
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHead id="servicos-titulo" eyebrow="Frentes de atuação" solid="Quatro frentes." faint="Um time só." />
+        <Link
+          href="/servicos"
+          className="inline-flex h-11 w-fit shrink-0 items-center gap-2 rounded-md border border-border-strong px-4 text-body-sm font-semibold text-text transition-colors duration-[var(--duration-quick)] hover:border-border-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+        >
+          Ver todos os serviços
+          <AreaIcon name="arrow-right" />
+        </Link>
+      </div>
 
       <ul className="border-t border-border-strong">
         {serviceAreas.map((area, i) => {
@@ -143,13 +153,22 @@ export default function ServiceList() {
                         </li>
                       ))}
                     </ul>
-                    <a
-                      href="#contato"
-                      className="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-sm text-body-sm font-semibold text-accent-text hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
-                    >
-                      Falar sobre {area.label}
-                      <AreaIcon name="arrow-right" className="h-3.5 w-3.5" />
-                    </a>
+                    <div className="flex flex-wrap items-center gap-x-6">
+                      <a
+                        href="#contato"
+                        className="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-sm text-body-sm font-semibold text-accent-text hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                      >
+                        Falar sobre {area.label}
+                        <AreaIcon name="arrow-right" className="h-3.5 w-3.5" />
+                      </a>
+                      <Link
+                        href={`/servicos#${area.slug}`}
+                        className="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-sm text-body-sm font-semibold text-text-soft hover:text-text hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                      >
+                        Ver detalhes
+                        <AreaIcon name="arrow-up-right" className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

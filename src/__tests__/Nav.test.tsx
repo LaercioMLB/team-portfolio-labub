@@ -5,13 +5,13 @@ describe('Nav', () => {
   it('renders logo, section links, theme toggle and contact', () => {
     render(<Nav />)
     expect(screen.getByRole('img', { name: 'Labub' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Labub/ })).toHaveAttribute('href', '#')
+    expect(screen.getByRole('link', { name: /Labub/ })).toHaveAttribute('href', '/')
     for (const [label, href] of [
-      ['Serviços', '#servicos'],
-      ['Como trabalhamos', '#metodo'],
-      ['Cases', '#cases'],
-      ['Time', '#time'],
-      ['Perguntas', '#perguntas'],
+      ['Serviços', '/servicos'],
+      ['Como trabalhamos', '/#metodo'],
+      ['Cases', '/#cases'],
+      ['Time', '/#time'],
+      ['Perguntas', '/#perguntas'],
     ]) {
       expect(screen.getByRole('link', { name: label })).toHaveAttribute('href', href)
     }

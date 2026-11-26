@@ -165,3 +165,12 @@ body {
 /* Âncoras não ficam escondidas atrás da nav fixa. */
 html { scroll-padding-top: 76px; }
 @media (max-width: 767px) { html { scroll-padding-top: 60px; } }
+
+/* /servicos: a linha do topo de cada frente se desenha em índigo (≈350ms) e volta ao cinza.
+   Usada por style inline em ServicesBody; o @keyframes fica no CSS final porque nada o remove. */
+@keyframes line-arrive {
+  0% { transform: scaleX(0); opacity: 1; }
+  32% { transform: scaleX(1); opacity: 1; }
+  60% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
