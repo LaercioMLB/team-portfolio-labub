@@ -2,13 +2,11 @@ import { render, screen } from '@testing-library/react'
 import Cta from '@/components/Cta'
 
 describe('Cta', () => {
-  it('renders contact info without a form', () => {
+  it('offers WhatsApp and e-mail without a form', () => {
     render(<Cta />)
-    expect(screen.getByText('contato@laercio.me')).toBeInTheDocument()
-    expect(screen.getByText('+55 (45) 9859-2126')).toBeInTheDocument()
-    expect(screen.getByText('Resposta em até 24h')).toBeInTheDocument()
-    expect(screen.getByText('Resposta imediata')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Chamar no WhatsApp/ })).toHaveAttribute('href', expect.stringContaining('whatsapp.com'))
+    expect(screen.getByRole('link', { name: /Mandar um e-mail/ })).toHaveAttribute('href', 'mailto:lbubiak@hotmail.com')
+    expect(screen.getByText(/resposta em até 24h/)).toBeInTheDocument()
     expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
-    expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 })

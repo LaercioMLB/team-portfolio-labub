@@ -1,10 +1,15 @@
 // src/data/cases.ts
+// Formato Desafio / Solução / Resultado (home v2). O Resultado diz o que foi entregue,
+// sem métrica inventada. Textos em rascunho: ver DESIGN.md › Open questions.
 export type Case = {
   name: string
-  tag: string
-  description: string
+  client: string
+  initials: string
+  sector: string
+  challenge: string
+  solution: string
+  result: string
   stack: string[]
-  theme: 'blue' | 'dark' | 'green' | 'greenLight'
   logo: string
   url: string
 }
@@ -12,28 +17,37 @@ export type Case = {
 export const cases: Case[] = [
   {
     name: 'SOS CONSTRUIR',
-    tag: 'Construção Civil · Frontend + Backend + DevOps + AWS',
-    description: 'Sistema de integração para vendas de materiais de construção e serviços de construção civil.',
-    stack: ['AWS', 'Node.js', 'DevOps', 'UI/UX'],
-    theme: 'greenLight',
+    client: 'SOS Construir',
+    initials: 'SC',
+    sector: 'Construção civil · Web, backend e DevOps',
+    challenge: 'Vender material e serviço de obra num lugar só, com fornecedores diferentes.',
+    solution: 'Plataforma de integração entre lojas, prestadores e clientes, com painel para a operação.',
+    result: 'Sistema no ar na AWS, com deploy automatizado.',
+    stack: ['AWS', 'Node.js', 'UX'],
     logo: '/cases/sosconstruir.svg',
     url: 'https://www.sosconstruir.com.br/',
   },
   {
     name: 'FixeCRM',
-    tag: 'Fidelidade de pontos · Mobile + Web + DevOps + AWS',
-    description: 'Sistema de fidelidade de pontos para empresas,com painel administrativo e integração com sistemas de terceiros.',
-    stack: ['Node.js', 'Cibersegurança', 'AWS', 'k8s', 'DevOps'],
-    theme: 'dark',
+    client: 'FixeCRM',
+    initials: 'FX',
+    sector: 'Fidelidade de pontos · Mobile, web e DevOps',
+    challenge: 'Um programa de pontos que as empresas conectam aos sistemas que já usam.',
+    solution: 'App, painel administrativo e integrações com sistemas de terceiros, em Kubernetes na AWS.',
+    result: 'Plataforma no ar, com segurança revisada e deploy contínuo.',
+    stack: ['Node.js', 'AWS', 'k8s'],
     logo: '/cases/fixe-crm.png',
     url: 'https://fixecrm.com/',
   },
   {
     name: 'Organizadin',
-    tag: 'Fintech · Mobile + Web + DevOps + AWS',
-    description: 'App de gestão financeira para pessoas físicas e jurídicas, com integração com OpenFinance, bancos e sistemas de pagamento.',
-    stack: ['ReactNative', 'AWS/Azure', 'CI/CD', 'DevOps', 'UI/UX'],
-    theme: 'greenLight',
+    client: 'Organizadin',
+    initials: 'OR',
+    sector: 'Fintech · Mobile, web e DevOps',
+    challenge: 'Juntar as finanças de pessoa física e jurídica num app só.',
+    solution: 'App com Open Finance e integração com bancos e meios de pagamento.',
+    result: 'App publicado, rodando em AWS e Azure com deploy contínuo.',
+    stack: ['React Native', 'AWS', 'Azure'],
     logo: '/cases/organizadin.svg',
     url: 'https://organizadin.com/',
   },

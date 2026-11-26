@@ -2,17 +2,13 @@ import { render, screen } from '@testing-library/react'
 import Cases from '@/components/Cases'
 
 describe('Cases', () => {
-  it('renders all 3 case names', () => {
+  it('renders each case as a link with challenge, solution and result', () => {
     render(<Cases />)
-    expect(screen.getByText('Moda Sul')).toBeInTheDocument()
-    expect(screen.getByText('Saúde+')).toBeInTheDocument()
-    expect(screen.getByText('Pago')).toBeInTheDocument()
-  })
-
-  it('renders stack tech pills', () => {
-    render(<Cases />)
-    expect(screen.getByText('React')).toBeInTheDocument()
-    expect(screen.getByText('GraphQL')).toBeInTheDocument()
-    expect(screen.getByText('K8s')).toBeInTheDocument()
+    for (const name of ['SOS Construir', 'FixeCRM', 'Organizadin']) {
+      expect(screen.getByRole('link', { name: new RegExp(name) })).toHaveAttribute('target', '_blank')
+    }
+    expect(screen.getAllByText('Desafio')).toHaveLength(3)
+    expect(screen.getAllByText('Resultado')).toHaveLength(3)
+    expect(screen.getByText(/Open Finance/)).toBeInTheDocument()
   })
 })

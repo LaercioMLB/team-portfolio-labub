@@ -29,7 +29,7 @@ const PATH =
     .map(([x, y], i) => `C ${PTS[i][0]} ${PTS[i][1] + 42} ${x} ${y - 42} ${x} ${y}`)
     .join(' ')
 
-// Abre a aba certa do navegador de serviços da home (ServicesBrowser escuta este evento).
+// Abre a frente certa na lista de serviços da home (ServiceList escuta este evento).
 export function selectServiceArea(area?: string) {
   if (area) window.dispatchEvent(new CustomEvent('labub:service-area', { detail: area }))
 }

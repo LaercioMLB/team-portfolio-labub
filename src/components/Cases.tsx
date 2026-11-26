@@ -1,65 +1,69 @@
-// src/components/Cases.tsx
-import { cases, type Case } from '@/data/cases'
+// Cases · Desafio / Solução / Resultado (labub.pen › Case card). Sem moldura: linha de 1px
+// no topo, que vira índigo de 2px no hover. O case inteiro é o link para o site do cliente.
+import { cases } from '@/data/cases'
+import AreaIcon from './AreaIcon'
+import SectionHead from './SectionHead'
 
-const themeClasses: Record<Case['theme'], string> = {
-  blue:  'bg-gradient-to-br from-[#0f172a] to-[#1e3a8a]',
-  dark:  'bg-gradient-to-br from-[#0a0a0a] to-[#1f2937]',
-  green: 'bg-gradient-to-br from-[#002F24] to-[#064e3b6]',
-  greenLight: 'bg-gradient-to-br from-[#f0f0f0] to-[#e5e7eb]',
-}
+const blocks = [
+  { key: 'challenge', label: 'Desafio' },
+  { key: 'solution', label: 'Solução' },
+  { key: 'result', label: 'Resultado' },
+] as const
 
 export default function Cases() {
   return (
-    <section id="cases" className="px-4 md:px-12 py-16 md:py-[120px]">
-      <p className="text-eyebrow text-accent-text uppercase tracking-[2px] font-semibold mb-3">
-        O que já entregamos
-      </p>
-      <h2 className="text-[24px] md:text-[36px] font-extrabold tracking-[-1px] md:tracking-[-1.5px] text-text mb-8 md:mb-12">
-        Projetos que{' '}
-        <span className="text-text-faint">fazem a diferença.</span>
-      </h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    <section id="cases" aria-labelledby="cases-titulo" className="flex flex-col gap-8 px-4 py-16 md:gap-12 md:px-12 md:py-28">
+      <SectionHead id="cases-titulo" eyebrow="Cases" solid="Projetos no ar." faint="Com gente usando." />
+      <ul className="grid gap-10 md:gap-8 lg:grid-cols-3">
         {cases.map((c) => (
-          <a
-            key={c.name}
-            href={c.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Ver projeto ${c.name}`}
-            className="block bg-surface border border-border rounded-lg overflow-hidden hover:border-border-hover transition-colors"
-          >
-            {/* Logo area */}
-            <div className={`h-[140px] flex items-center justify-center ${themeClasses[c.theme]}`}>
-              {/* eslint-disable-next-line @next/next/no-img-element -- local SVG logo, no optimization needed */}
-              <img src={c.logo} alt={c.name} className="h-10 w-auto" />
-            </div>
+          <li key={c.name} className="flex">
+            <a
+              href={c.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${c.client} (abre o site em nova aba)`}
+              className="group/case relative flex w-full flex-col gap-6 rounded-md pt-7 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-focus"
+            >
+              <span aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-border-strong" />
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-[var(--duration-fast)] ease-[var(--ease)] group-hover/case:scale-x-100 group-hover/case:duration-[var(--duration-medium)] motion-reduce:transition-none"
+              />
+              <span className="flex items-center gap-3.5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-border bg-fill-2 text-[14px] font-extrabold text-text-soft" aria-hidden="true">
+                  {c.initials}
+                </span>
+                <span className="flex flex-col gap-1">
+                  <span className="text-title font-bold tracking-[-0.4px] text-text">{c.client}</span>
+                  <span className="text-caption leading-caption text-text-muted">{c.sector}</span>
+                </span>
+              </span>
 
-            {/* Body */}
-            <div className="p-5">
-              <p className="text-micro text-accent-text font-semibold uppercase tracking-[1px] mb-2">
-                {c.tag}
-              </p>
-              <h3 className="text-body font-bold text-text tracking-tight">
-                {c.name}
-              </h3>
-              <p className="text-caption text-text-muted mt-1.5 leading-[1.5]">
-                {c.description}
-              </p>
-              <div className="flex gap-1.5 flex-wrap mt-3.5">
-                {c.stack.map((tech) => (
+              <span className="flex flex-col gap-4">
+                {blocks.map((b) => (
                   <span
-                    key={tech}
-                    className="text-micro text-text-muted border border-border px-2 py-0.5 rounded-sm"
+                    key={b.key}
+                    className={`flex flex-col gap-1.5 border-l-2 pl-3.5 ${b.key === 'result' ? 'border-accent' : 'border-border-strong'}`}
                   >
-                    {tech}
+                    <span className="text-eyebrow font-semibold uppercase tracking-[2px] text-accent-text">{b.label}</span>
+                    <span className={`text-body-sm leading-body-sm ${b.key === 'result' ? 'text-text-soft' : 'text-text-muted'}`}>
+                      {c[b.key]}
+                    </span>
                   </span>
                 ))}
-              </div>
-            </div>
-          </a>
+              </span>
+
+              <span className="mt-auto flex items-center justify-between border-t border-divider pt-4">
+                <span className="text-caption text-text-muted">{c.stack.join(' · ')}</span>
+                <span className="flex items-center gap-1.5 text-caption font-semibold text-text-soft transition-colors duration-[var(--duration-quick)] group-hover/case:text-accent-text">
+                  Ver o site
+                  <AreaIcon name="arrow-up-right" className="h-3.5 w-3.5" />
+                </span>
+              </span>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   )
 }

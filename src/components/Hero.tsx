@@ -1,66 +1,63 @@
-// src/components/Hero.tsx
+// Hero da home v2 (labub.pen › 08–11). Uma ação principal só: "Fale com a gente".
 import HeroFlow from './HeroFlow'
+import AreaIcon from './AreaIcon'
 
 export default function Hero() {
   return (
-    <section className="relative px-4 md:px-12 pt-12 md:pt-24 pb-0 lg:pb-12 overflow-hidden">
-      {/* Grid decorativo */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(var(--color-accent-grid) 1px, transparent 1px),
-            linear-gradient(90deg, var(--color-accent-grid) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px',
-        }}
-      />
+    <section className="border-b border-divider px-4 pb-10 pt-12 md:px-12 md:pb-[88px] md:pt-24">
+      <div className="grid items-center gap-10 xl:grid-cols-[minmax(0,1fr)_520px] xl:gap-16">
+        <div className="flex w-full max-w-[560px] flex-col gap-6 md:gap-7">
+          <p className="text-eyebrow font-semibold uppercase tracking-[2px] text-accent-text">
+            Consultoria e time de tecnologia
+          </p>
 
-      {/* Glow radial */}
-      <div className="absolute pointer-events-none -top-32 -left-24 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,var(--color-accent-glow)_0%,transparent_65%)]" />
+          <h1 className="text-[38px] font-black leading-[1.05] tracking-[-1.8px] md:text-display md:leading-[1.02] md:tracking-[-3px]">
+            <span className="block text-text">Do zero ao deploy,</span>
+            <span className="block text-text-faint">com um time só.</span>
+          </h1>
 
-      <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_520px]">
-      <div className="w-full max-w-3xl">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-accent-bg border border-accent-border px-3.5 py-1.5 rounded-full mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[var(--glow-accent)]" />
-          <span className="text-eyebrow text-accent-soft font-medium tracking-wide">
-            Aceitando novos projetos em 2026
-          </span>
+          <p className="text-body leading-body text-text-muted md:text-[17px] md:leading-[1.65]">
+            A gente entende o seu negócio, monta o plano e entrega o sistema no ar: frontend, backend, UX e
+            DevOps no mesmo time. Você fala com quem faz, sem precisar saber de tecnologia.
+          </p>
+
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
+            <a
+              href="#contato"
+              className="inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-6 text-body font-bold text-on-primary transition-colors duration-[var(--duration-quick)] hover:bg-primary-hover active:bg-primary-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            >
+              Fale com a gente
+              <AreaIcon name="arrow-right" />
+            </a>
+            <a
+              href="#metodo"
+              className="inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border-strong px-6 text-body font-semibold text-text transition-colors duration-[var(--duration-quick)] hover:border-border-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            >
+              Ver como trabalhamos
+              <AreaIcon name="arrow-down" />
+            </a>
+          </div>
+
+          <ul className="flex flex-wrap items-center gap-x-4 gap-y-2 text-caption text-text-muted">
+            <li className="flex items-center gap-1.5">
+              <AreaIcon name="users" className="h-3.5 w-3.5" />7 especialistas no time
+            </li>
+            <li className="flex items-center gap-1.5">
+              <AreaIcon name="timer" className="h-3.5 w-3.5" />
+              Resposta em até 24h
+            </li>
+          </ul>
+
+          {/* Até 1280px: o fluxo vem abaixo, compacto */}
+          <div className="xl:hidden">
+            <HeroFlow variant="row" />
+          </div>
         </div>
 
-        {/* Headline 3 linhas */}
-        <h1 className="text-[36px] md:text-[64px] font-black tracking-[-2px] md:tracking-[-3px] leading-none mb-4 md:mb-6">
-          <span className="block text-text">Construímos</span>
-          <span className="block text-outline">o digital que</span>
-          <span className="block text-gradient">move negócios.</span>
-        </h1>
-
-        {/* Subtítulo */}
-        <p className="text-[14px] md:text-body-lg text-text-muted leading-[1.7] max-w-full md:max-w-[460px]">
-          A Labub é um time completo de{' '}
-          <strong className="text-text-soft font-medium">frontend, backend, UX e DevOps</strong>.
-          Do zero ao deploy, a gente cuida do que você não quer se preocupar.
-        </p>
-
-        <a
-          href="#contato"
-          className="inline-flex items-center gap-2 mt-8 text-body font-bold text-on-primary bg-primary px-6 py-3.5 rounded-md hover:bg-primary-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-        >
-          Fale com a gente
-          <span aria-hidden="true">→</span>
-        </a>
-
-        {/* Celular e tablet: o fluxo vem abaixo do botão, compacto */}
-        <div className="mt-10 lg:hidden">
-          <HeroFlow variant="row" />
+        {/* A partir de 1280px: o fluxo à direita do texto */}
+        <div className="hidden xl:block">
+          <HeroFlow variant="map" />
         </div>
-      </div>
-
-      {/* Desktop: o fluxo à direita do texto */}
-      <div className="hidden lg:block">
-        <HeroFlow variant="map" />
-      </div>
       </div>
     </section>
   )

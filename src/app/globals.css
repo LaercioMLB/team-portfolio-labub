@@ -149,3 +149,19 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
 }
+
+/* ── Tema (v2): claro e escuro ─────────────────────────────
+   O script no <head> (layout.tsx) define data-theme antes do primeiro quadro.
+   Sem data-theme (sem JS), vale o escuro do :root. */
+:root { color-scheme: dark; }
+[data-theme="light"] { color-scheme: light; }
+
+/* Seletor de tema: ícone escolhido pelo CSS, não pelo estado do React (sem piscar). */
+.theme-icon-moon { display: none; }
+.theme-icon-sun { display: block; }
+[data-theme="light"] .theme-icon-moon { display: block; }
+[data-theme="light"] .theme-icon-sun { display: none; }
+
+/* Âncoras não ficam escondidas atrás da nav fixa. */
+html { scroll-padding-top: 76px; }
+@media (max-width: 767px) { html { scroll-padding-top: 60px; } }
