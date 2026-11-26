@@ -1,6 +1,7 @@
 /* Labub · tokens (rascunho das fundações, v0.1)
    Papéis, não valores: componentes pedem --color-text-muted, nunca #888.
-   Tema único escuro. Contraste medido sobre --color-bg (#080808). */
+   Escuro no :root; claro em [data-theme="light"] (o site usa os dois desde a v2).
+   Contraste medido sobre --color-bg (#080808). */
 
 :root {
   /* ── Chão ───────────────────────────────────────────── */
@@ -115,7 +116,7 @@
 }
 
 /* ── Tema claro ─────────────────────────────────────────
-   Para propostas em PDF, documentos e e-mail (DESIGN.md › Constraints).
+   No site (v2, seletor na nav) e em propostas em PDF, documentos e e-mail.
    Mesmos papéis, valores trocados. Contraste medido sobre --color-bg (#FAFAFA).
    Ative com data-theme="light" no elemento raiz do documento. */
 [data-theme="light"] {
